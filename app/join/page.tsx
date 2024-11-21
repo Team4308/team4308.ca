@@ -20,137 +20,11 @@ export default function Sponsor() {
       </div>
       <div className="mx-auto w-11/12 max-w-5xl">
         <ol className="relative border-s border-neutral-400/40">
-          <li className="mb-10 ms-4">
-            {/* Past event: bg-neutral-600 */}
-            {/* Current event: bg-green-500 */}
-            {/* Future event: bg-neutral-400 */}
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-600"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 9
-            </time>
-            <h3 className="text-lg font-semibold text-white">Club Fair</h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              Absolute Robotics will have a booth at the club fair. Come by to
-              meet the team, learn more about what we do, and see our robot
-              demo!
-            </p>
-          </li>
+          {/* Past event: bg-neutral-600 */}
+          {/* Current event: bg-green-500 */}
+          {/* Future event: bg-neutral-400 */}
           <li className="mb-10 ms-4">
             <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-600"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 11
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              Initial Info Meeting
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              The team will be running the first introductory meeting of the
-              season. Important information will be shared, and any questions
-              you have will be answered. It is highly reccomended to attend this
-              meeting if you are interested in joining the team this year.
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-green-500"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 18
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              Team Registration Due
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              By this date, team members should have submitted their{" "}
-              <a
-                href="https://forms.gle/aWFSWhdDhPqANk856"
-                target="_blank"
-                className="text-white/80 underline"
-              >
-                Absolute Robotics registration Google Form
-              </a>
-              .
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 20
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              Team Registration Fee Due
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              By this date, team members should have paid their team
-              registration fee on School Cash Online.
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 20
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              FIRST Registration Due
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              By this date, team members should have completed all required
-              forms and signups on the FIRST website.
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              September 19 - November 8
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              Subteam Lessons & Bootcamps
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              Team members will be able to attend subteam lessons and bootcamps
-              to prepare for the start of the build season. These lessons also
-              serve as a way to learn more about the different subteams and what
-              they do.
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              October 20
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              STEMley Cup Championship
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              An unofficial post-season competition for the game featured last
-              year. New team members are encouraged to attend this competition
-              to see what a competition is like and how the games are run.
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              October 25
-            </time>
-            <h3 className="text-lg font-semibold text-white">
-              Subteam Applications Open
-            </h3>
-            <p className="mb-4 text-base font-normal text-neutral-400">
-              As kickoff approaches, team members have to choose which subteam
-              to dedicate their season to. Applications will be released, and
-              members will have to apply to their desired subteam. If you have
-              any questions about this process, please reach out to the team
-              either in-person or through{" "}
-              <a
-                href="mailto:contact@team4308.ca"
-                target="_blank"
-                className="text-white/80 underline"
-              >
-                contact@team4308.ca
-              </a>
-              .
-            </p>
-          </li>
-          <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
               November 10
             </time>
@@ -163,7 +37,7 @@ export default function Sponsor() {
             </p>
           </li>
           <li className="mb-10 ms-4">
-            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
+            <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-green-500"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
               January 4
             </time>
