@@ -21,7 +21,9 @@ export default function Sponsor() {
       <div className="mx-auto w-11/12 max-w-5xl">
         <ol className="relative border-s border-neutral-400/40">
           <li className="mb-10 ms-4">
-            {/* rember is neut 600 for past an 400 for futu */}
+            {/* Past event: bg-neutral-600 */}
+            {/* Current event: bg-green-500 */}
+            {/* Future event: bg-neutral-400 */}
             <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-600"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
               September 9
