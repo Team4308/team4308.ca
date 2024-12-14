@@ -272,7 +272,7 @@ export default function Sponsor() {
       </div>
       <div className="mx-auto w-11/12 lg:max-w-5xl">
         <p className="mx-auto mb-8 text-[2.25rem] leading-[130%] tracking-tight">
-          Frequenty Asked Questions
+          Frequently Asked Questions
         </p>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1" className="border-[#d6ebfd30]">
