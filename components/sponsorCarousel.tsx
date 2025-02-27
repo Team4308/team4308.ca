@@ -9,19 +9,6 @@ export default function Spoonsors() {
       <div className="flex flex-row flex-wrap place-content-around gap-x-5 gap-y-4">
         <a
           target="_blank"
-          href="https://www.westonforest.com/"
-          className="flex"
-        >
-          <Image
-            src="/westonForest.png"
-            width={120}
-            height={100}
-            alt="logo of lorem"
-            className="object-contain"
-          />
-        </a>
-        <a
-          target="_blank"
           href="https://www.zebra.com/us/en.html"
           className="flex"
         >
@@ -35,20 +22,11 @@ export default function Spoonsors() {
         </a>
         <a
           target="_blank"
-          href="https://www.asc-csa.gc.ca/eng/"
+          href="https://www.westonforest.com/"
           className="flex"
         >
           <Image
-            src="/csa.png"
-            width={80}
-            height={80}
-            alt="logo of lorem"
-            className="object-contain"
-          />
-        </a>
-        <a target="_blank" href="https://www.utm.utoronto.ca/" className="flex">
-          <Image
-            src="/utm.png"
+            src="/westonForest.png"
             width={120}
             height={100}
             alt="logo of lorem"
@@ -58,6 +36,37 @@ export default function Spoonsors() {
         <a target="_blank" href="https://sablemetal.com" className="flex">
           <Image
             src="/sable.png"
+            width={120}
+            height={100}
+            alt="logo of lorem"
+            className="object-contain"
+          />
+        </a>
+        <a target="_blank" href="https://www.pervices.com/" className="flex">
+          <Image
+            src="/pervices.png"
+            width={120}
+            height={100}
+            alt="logo of lorem"
+            className="object-contain"
+          />
+        </a>
+        <a target="_blank" href="https://www.readysetcut.ca/" className="flex">
+          <Image
+            src="/ready-set-cut.svg"
+            width={120}
+            height={100}
+            alt="logo of lorem"
+            className="object-contain"
+          />
+        </a>
+        <a
+          target="_blank"
+          href="https://www.jukeboxprint.com/"
+          className="flex"
+        >
+          <Image
+            src="/jukebox.svg"
             width={120}
             height={100}
             alt="logo of lorem"
