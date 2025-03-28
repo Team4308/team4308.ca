@@ -16,7 +16,7 @@ export default function PastSeasons() {
               textWrap: "balance",
             }}
           >
-            Our team's journey through previous FIRST Robotics Competition
+            Our team&apos;s journey through previous FIRST Robotics Competition
             seasons.
           </span>
         </p>
