@@ -58,6 +58,11 @@ const MyComponent = () => {
             </Link>
           </li>
           <li>
+            <Link href="/past-seasons" className="text-lg">
+              Past Seasons
+            </Link>
+          </li>
+          <li>
             <Link href="/blog" className="text-lg">
               Blog
             </Link>

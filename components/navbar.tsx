@@ -22,6 +22,9 @@ export default function Navbar() {
             <Link href="/sponsor">Sponsors</Link>
           </li>
           <li>
+            <Link href="/past-seasons">Past Seasons</Link>
+          </li>
+          <li>
             <Link href="/blog">Blog</Link>
           </li>
         </ul>
