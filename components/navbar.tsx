@@ -21,11 +21,6 @@ export default function Navbar() {
           <li>
             <Link href="/sponsor">Sponsors</Link>
           </li>
-          {/* Past Seasons page commented out as it's under construction
-          <li>
-            <Link href="/past-seasons">Past Seasons</Link>
-          </li>
-          */}
           <li>
             <Link href="/blog">Blog</Link>
           </li>

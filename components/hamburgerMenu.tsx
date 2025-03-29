@@ -57,13 +57,6 @@ const MyComponent = () => {
               Sponsors
             </Link>
           </li>
-          {/* Past Seasons page commented out as it's under construction
-          <li>
-            <Link href="/past-seasons" className="text-lg">
-              Past Seasons
-            </Link>
-          </li>
-          */}
           <li>
             <Link href="/blog" className="text-lg">
               Blog
