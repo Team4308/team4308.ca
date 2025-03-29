@@ -15,9 +15,9 @@ export default function Sponsor() {
                 fetchPriority="high"
                 decoding="async"
                 data-nimg="1"
-                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
+                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] bg-black/20 object-contain p-2 md:rounded-xl"
                 style={{ color: "transparent" }}
-                src="/drivetrain.jpg"
+                src="/logo.svg"
               />
               <div className="mt-2 lg:mt-1">
                 <h2 className="font-book font-styling font-display mt-4 line-clamp-5 text-balance text-[2.25rem] text-[28px] leading-[130%] leading-tight tracking-tight text-[#fcfdffef]">
