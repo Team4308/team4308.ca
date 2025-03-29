@@ -6,7 +6,6 @@ This repository contains the source code for the Absolute Robotics website. The 
 
 - **Blog**: Updates and news about the team.
 - **Join Us**: Information for prospective members.
-- **Parents**: Resources for parents of team members.
 - **Sponsors**: Acknowledgment of our sponsors and partnership opportunities.
 
 ## Technologies Used

@@ -18,9 +18,6 @@ export default function Footer() {
             <Link href="/sponsor">Sponsors</Link>
           </li>
           <li>
-            <Link href="/parents">Parents</Link>
-          </li>
-          <li>
             <Link href="/blog">Blog</Link>
           </li>
         </ul>
