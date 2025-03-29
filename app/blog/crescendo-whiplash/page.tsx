@@ -18,21 +18,8 @@ export default function Sponsor() {
       </div>
       <div>
         <p className="mx-auto max-w-xl text-[#f1f7feb5]">
-          We're excited to unveil our 2024 FRC robot for the Crescendo
-          competition - Whiplash!
-          <br />
-          <br />
-          Whiplash features a high-scoring shooter mechanism capable of
-          consistently hitting the speaker from various positions on the field.
-          Our focus this year was on combining speed with precision.
-          <br />
-          <br />
-          The robot's innovative design includes a quick intake system and a
-          stable shooting platform that maintains accuracy even while in motion.
-          <br />
-          <br />
-          Stay tuned for more detailed breakdowns of our design process and
-          competition performance!
+          We're excited to unveil our 2024 FRC robot for the Crescendo season -
+          Whiplash!
         </p>
       </div>
     </div>

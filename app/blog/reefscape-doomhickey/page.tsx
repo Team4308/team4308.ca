@@ -18,23 +18,8 @@ export default function Sponsor() {
       </div>
       <div>
         <p className="mx-auto max-w-xl text-[#f1f7feb5]">
-          We're proud to present our 2023 robot for the Reefscape challenge -
+          We're proud to present our 2025 robot for the Reefscape season -
           Doomhickey!
-          <br />
-          <br />
-          This year's design focused on maneuverability and balance, allowing us
-          to efficiently navigate the charging station while collecting and
-          placing game pieces.
-          <br />
-          <br />
-          Doomhickey features a custom swerve drivetrain that gives us unmatched
-          control on the field, along with a versatile arm mechanism for precise
-          placement of cones and cubes.
-          <br />
-          <br />
-          Our team's hard work and dedication have resulted in one of our most
-          capable robots to date. Check back for more updates on our competition
-          progress!
         </p>
       </div>
     </div>
