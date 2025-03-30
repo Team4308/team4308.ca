@@ -18,8 +18,8 @@ export default function Sponsor() {
       </div>
       <div>
         <p className="mx-auto max-w-xl text-[#f1f7feb5]">
-          We're excited to unveil our 2024 FRC robot for the Crescendo season -
-          Whiplash!
+          We&apos;'re excited to unveil our 2024 FRC robot for the Crescendo
+          season - Whiplash!
         </p>
       </div>
     </div>

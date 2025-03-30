@@ -18,7 +18,7 @@ export default function Sponsor() {
       </div>
       <div>
         <p className="mx-auto max-w-xl text-[#f1f7feb5]">
-          We're proud to present our 2025 robot for the Reefscape season -
+          We&apos;re proud to present our 2025 robot for the Reefscape season -
           Doomhickey!
         </p>
       </div>
