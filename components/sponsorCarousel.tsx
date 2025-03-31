@@ -9,19 +9,6 @@ export default function Spoonsors() {
       <div className="flex flex-row flex-wrap place-content-around gap-x-5 gap-y-4">
         <a
           target="_blank"
-          href="https://www.zebra.com/us/en.html"
-          className="flex"
-        >
-          <Image
-            src="/zebra.png"
-            width={120}
-            height={100}
-            alt="logo of lorem"
-            className="object-contain"
-          />
-        </a>
-        <a
-          target="_blank"
           href="https://www.westonforest.com/"
           className="flex"
         >
