@@ -8,7 +8,7 @@ export default function Sponsor() {
       </div>
       <ul className="grid gap-8 md:grid-cols-2">
         <li className="">
-          <a href="/blog/4308-at-club-fair">
+          <a href="/blog/reefscape-doomhickey">
             <div className="space-y-2">
               <img
                 alt="goosifer(s)"
