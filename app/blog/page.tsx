@@ -8,16 +8,16 @@ export default function Sponsor() {
       </div>
       <ul className="grid gap-8 md:grid-cols-2">
         <li className="">
-          <a href="/blog/reefscape-doomhickey">
+          <a href="/blog/4308-at-club-fair">
             <div className="space-y-2">
               <img
-                alt="Reefscape robot"
+                alt="goosifer(s)"
                 fetchPriority="high"
                 decoding="async"
                 data-nimg="1"
-                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] bg-black/20 object-contain p-2 md:rounded-xl"
+                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
                 style={{ color: "transparent" }}
-                src="/logo.svg"
+                src="/reefscape-render.png"
               />
               <div className="mt-2 lg:mt-1">
                 <h2 className="font-book font-styling font-display mt-4 line-clamp-5 text-balance text-[2.25rem] text-[28px] leading-[130%] leading-tight tracking-tight text-[#fcfdffef]">
@@ -29,7 +29,7 @@ export default function Sponsor() {
                       Absolute Robotics ·{" "}
                     </p>
                     <p className="text-sm font-normal text-[#f1f7feb5]">
-                      <time dateTime="2025-03-08">Mar 8, 2025</time>
+                      <time dateTime="2024-09-13">Mar 8, 2025</time>
                     </p>
                   </div>
                 </div>
