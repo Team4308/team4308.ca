@@ -31,8 +31,8 @@ export default function Sponsor() {
           consistency is maintained with an integrated autoaligner.
           <br />
           <br />
-          We're excited to see how Doomhickey performs in the 2025 season, and
-          we hope to see you at our competitions!
+          We&apos;re excited to see how Doomhickey performs in the 2025 season,
+          and we hope to see you at our competitions!
         </p>
       </div>
     </div>
