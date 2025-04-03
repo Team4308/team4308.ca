@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Sponsor() {
   return (
     <div className="mx-auto mt-36 w-full max-w-5xl px-6 md:max-w-7xl">
@@ -34,6 +36,13 @@ export default function Sponsor() {
           We&apos;re excited to see how Doomhickey performs in the 2025 season,
           and we hope to see you at our competitions!
         </p>
+        <Image
+          src="/reefscape-render.png"
+          alt="Doomhickey robot render"
+          width={800}
+          height={600}
+          className="mx-auto mt-12 mt-4 rounded-lg"
+        />
       </div>
     </div>
   );
