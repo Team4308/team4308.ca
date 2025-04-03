@@ -24,24 +24,29 @@ export default function Sponsor() {
           Doomhickey!
           <br />
           <br />
-          Doomhickey is an agile scoring robot that excels at both L3 and L4
-          tasks while also knocking down algae during operation.
+          Doomhickey is a fast, offensive robot that focuses on L2, L3, and
+          algae removal objectives.
           <br />
           <br />
-          Its scoring efficiency is boosted by a high-speed swerve drive that
-          achieves cycle times in under 4 seconds, and its performance
-          consistency is maintained with an integrated autoaligner.
+          The robot consists of an agile swerve drivetrain, a speedy cascade
+          elevator, a fixed end effector with a full 360 degree rotation arm,
+          and a robust funnel.
+          <br />
+          <br />
+          It stays ahead of the competition with advanced on-the-fly path
+          planning auto alignment through vision processing and simultaneous
+          coral scoring and algae removal.
           <br />
           <br />
           We&apos;re excited to see how Doomhickey performs in the 2025 season,
-          and we hope to see you at our competitions!
+          and we hope to see you at our competitions.
         </p>
         <Image
           src="/reefscape-render.png"
           alt="Doomhickey robot render"
           width={800}
           height={600}
-          className="mx-auto mt-12 mt-4 rounded-lg"
+          className="mx-auto mt-12 rounded-lg"
         />
       </div>
     </div>
