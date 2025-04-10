@@ -60,6 +60,19 @@ export default function Spoonsors() {
             className="object-contain"
           />
         </a>
+        <a
+          target="_blank"
+          href="https://rotaryclubofmississauga.com/"
+          className="flex"
+        >
+          <Image
+            src="/rotary.png"
+            width={120}
+            height={100}
+            alt="logo of lorem"
+            className="object-contain"
+          />
+        </a>
       </div>
     </div>
   );
