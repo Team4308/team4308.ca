@@ -8,7 +8,7 @@ export default function Sponsor() {
       </div>
       <ul className="grid gap-8 md:grid-cols-2">
         <li className="">
-          <a href="/blog/reefscape-doomhickey">
+          <a href="/blog/reefscape-doohickey">
             <div className="space-y-2">
               <img
                 alt="goosifer(s)"
@@ -21,7 +21,7 @@ export default function Sponsor() {
               />
               <div className="mt-2 lg:mt-1">
                 <h2 className="font-book font-styling font-display mt-4 line-clamp-5 text-balance text-[2.25rem] text-[28px] leading-[130%] leading-tight tracking-tight text-[#fcfdffef]">
-                  Reefscape: Doomhickey
+                  Reefscape: Doohickey
                 </h2>
                 <div className="mt-2.5 flex items-center gap-1.5 md:gap-2 lg:mt-3">
                   <div className="flex gap-1">

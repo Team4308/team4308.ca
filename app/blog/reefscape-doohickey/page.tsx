@@ -5,7 +5,7 @@ export default function Sponsor() {
     <div className="mx-auto mt-36 w-full max-w-5xl px-6 md:max-w-7xl">
       <div className="mb-10 mt-2 flex w-full flex-col items-center justify-between gap-2 md:gap-0">
         <h2 className="font-gradient mb-2 bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-[3rem] leading-[120%] tracking-tight text-transparent md:text-[3.5rem]">
-          Reefscape: Doomhickey
+          Reefscape: Doohickey
         </h2>
         <div className="mt-2.5 flex items-center gap-1.5 md:gap-2 lg:mt-3">
           <div className="flex gap-1">
@@ -21,11 +21,11 @@ export default function Sponsor() {
       <div>
         <p className="mx-auto max-w-xl text-[#f1f7feb5]">
           We&apos;re proud to present our 2025 robot for the Reefscape season -
-          Doomhickey!
+          Doohickey!
           <br />
           <br />
-          Doomhickey is a fast, offensive robot that focuses on L2, L3, and
-          algae removal objectives.
+          Doohickey is a fast, offensive robot that focuses on L2, L3, and algae
+          removal objectives.
           <br />
           <br />
           The robot consists of an agile swerve drivetrain, a speedy cascade
@@ -38,12 +38,12 @@ export default function Sponsor() {
           coral scoring and algae removal.
           <br />
           <br />
-          We&apos;re excited to see how Doomhickey performs in the 2025 season,
+          We&apos;re excited to see how Doohickey performs in the 2025 season,
           and we hope to see you at our competitions.
         </p>
         <Image
           src="/reefscape-render.png"
-          alt="Doomhickey robot render"
+          alt="Doohickey robot render"
           width={800}
           height={600}
           className="mx-auto mt-12 rounded-lg"
