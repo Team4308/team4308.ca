@@ -12,26 +12,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-nav-dropdown: var(--nav-dropdown);
+  --color-nav-hover: var(--nav-hover);
   --color-nav-current: var(--nav-current);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-nav {
-  background: var(--foreground);
-  color: var(--background);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.trigger:hover {
-  color: var(--nav-hover);
 }
 
 @keyframes open {
@@ -43,24 +27,12 @@ nav {
   }
 }
 
-@keyframes close {
-  from {
-    transform: scaleY(1);
-  }
-  to {
-    transform: scaleY(0);
-  }
-}
-
 .content {
   transform-origin: top center;
   overflow: hidden;
 }
 .content[data-state="open"] {
   animation: open ease-in-out 400ms;
-}
-.content[data-state="close"] {
-  animation: close ease-in-out 300ms;
 }
 
 [data-state="open"] > .caret {

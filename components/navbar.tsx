@@ -2,6 +2,7 @@
 
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { NavigationMenu } from "radix-ui";
 import { useEffect, useState } from "react";
 
@@ -13,8 +14,37 @@ export default function NavBar() {
     return () =>window.removeEventListener("orientationchange", listener);
   })
 
+  const path = usePathname();
+
+  function SimpleItem({href, label}: {href: string, label: string}) {
+    return (
+      <NavigationMenu.Item>
+        <NavigationMenu.Link href={href} className={`${path===href ? "text-nav-current" : ""} ${trigger}`}>{label}</NavigationMenu.Link>
+      </NavigationMenu.Item>
+    );
+  }
+
+  function ComplexItem({label, hrefBase, items}: {label: string, hrefBase: string, items: {href: string, label: string}[]}) {
+    return (
+      <NavigationMenu.Item className="relative">
+        <NavigationMenu.Trigger className={`${path.split('/').slice(1)[0]===hrefBase.slice(1) ? "text-nav-current" : ""} ${trigger} flex flex-row`}>{label}<ChevronDownIcon className={`caret transition-transform ${transition} p-[-25%] static size-4 self-center`}/></NavigationMenu.Trigger>
+        <NavigationMenu.Content className="content flex md:text-center text-nowrap md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%] px-6 md:p-0 md:bg-background">
+          <ul className="flex flex-col md:items-center gap-2 md:gap-px">
+            <div className="md:hidden h-0"/>
+            {items.map(({href, label}) => {
+              return (
+                <NavigationMenu.Link key={label} href={hrefBase+href} className={`${path===hrefBase+href ? "text-nav-current" : ""} ${trigger} w-full md:px-5 md:py-2 md:bg-nav-dropdown`}>{label}</NavigationMenu.Link>
+              );
+            })}
+            <div className="md:hidden h-2"/>
+          </ul>
+        </NavigationMenu.Content>
+      </NavigationMenu.Item>
+    );
+  }
+
   return (
-    <NavigationMenu.Root className="fixed flex flex-row top-0 w-screen px-6 lg:px-[20%] py-3 items-center">
+    <NavigationMenu.Root className="fixed flex flex-row top-0 w-screen px-6 lg:px-[20%] py-3 items-center bg-foreground text-background text-lg font-semibold">
       <Logo className="mr-auto ml-2"/>
       <div className={`md:hidden size-9 ${nav ? "z-0" : "z-1"}`} onClick={()=>setNav(true)}><HamburgerMenuIcon className="size-full"/></div>
 
@@ -60,32 +90,5 @@ function Seperator() {
   return ( <div className="w-full h-px md:w-px md:h-9 bg-background"/> );
 }
 
-function SimpleItem({href, label}: {href: string, label: string}) {
-  return (
-    <NavigationMenu.Item>
-      <NavigationMenu.Link href={href} className={`trigger ${trigger}`}>{label}</NavigationMenu.Link>
-    </NavigationMenu.Item>
-  );
-}
-
-function ComplexItem({label, hrefBase, items}: {label: string, hrefBase: string, items: {href: string, label: string}[]}) {
-  return (
-    <NavigationMenu.Item className="relative">
-      <NavigationMenu.Trigger className={`trigger ${trigger} flex flex-row`}>{label}<ChevronDownIcon className={`caret transition-transform ${transition} p-[-25%] static size-4 self-center`}/></NavigationMenu.Trigger>
-      <NavigationMenu.Content className="content flex md:text-center text-nowrap md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%] px-6 md:p-0 md:bg-background">
-        <ul className="flex flex-col md:items-center gap-2 md:gap-px">
-          <div className="md:hidden h-0"/>
-          {items.map(({href, label}) => {
-            return (
-              <NavigationMenu.Link key={label} href={hrefBase + href} className={`trigger w-full md:px-5 md:py-2 md:bg-nav-dropdown`}>{label}</NavigationMenu.Link>
-            );
-          })}
-          <div className="md:hidden h-2"/>
-        </ul>
-      </NavigationMenu.Content>
-    </NavigationMenu.Item>
-  );
-}
-
 const transition = "ease-in-out duration-300";
-const trigger = `md:p-2 ${transition}`;
+const trigger = `md:p-2 hover:text-nav-hover ${transition}`;
