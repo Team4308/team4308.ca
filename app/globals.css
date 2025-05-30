@@ -4,8 +4,8 @@
   --background: #ffffff;
   --foreground: #750e25;
   --nav-dropdown: #8c112c;
-  --nav-hover: #f5bb4e;
-  --nav-current: #f5994e;
+  --nav-hover: #ccb1b7;
+  --nav-current: #ab858d;
 }
 
 @theme inline {
@@ -35,6 +35,6 @@
   animation: open ease-in-out 400ms;
 }
 
-[data-state="open"] > .caret {
-  transform: rotate(180deg);
+.trigger:hover {
+  color: var(--nav-hover);
 }
