@@ -1,4 +1,4 @@
-export default function Sponsor() {
+export default function Blog() {
   return (
     <div className="mx-auto mt-36 w-full max-w-5xl px-6 md:max-w-7xl">
       <div className="mb-16 mt-2 flex w-full flex-col items-center justify-between gap-2 md:flex-row md:gap-0">
@@ -8,6 +8,36 @@ export default function Sponsor() {
       </div>
       <ul className="grid gap-8 md:grid-cols-2">
         <li className="">
+          <a href="/blog/tree-planting">
+            <div className="space-y-2">
+              <img
+                alt="Planting Trees"
+                fetchPriority="high"
+                decoding="async"
+                data-nimg="1"
+                className="col-span-2 h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_40%] md:rounded-xl"
+                style={{ color: "transparent" }}
+                src="/tree-planting.jpg"
+              />
+              <div className="mt-2 lg:mt-1">
+                <h2 className="font-book font-styling font-display mt-4 line-clamp-5 text-balance text-[2.25rem] text-[28px] leading-[130%] leading-tight tracking-tight text-[#fcfdffef]">
+                  4308 Tree Planting Event
+                </h2>
+                <div className="mt-2.5 flex items-center gap-1.5 md:gap-2 lg:mt-3">
+                  <div className="flex gap-1">
+                    <p className="text-sm font-normal text-[#fcfdffef]">
+                      Absolute Robotics ·{" "}
+                    </p>
+                    <p className="text-sm font-normal text-[#f1f7feb5]">
+                      <time dateTime="2024-03-08">May 27, 2025</time>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li className="">
           <a href="/blog/reefscape-doohickey">
             <div className="space-y-2">
               <img
@@ -15,7 +45,7 @@ export default function Sponsor() {
                 fetchPriority="high"
                 decoding="async"
                 data-nimg="1"
-                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
+                className="col-span-2 h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
                 style={{ color: "transparent" }}
                 src="/reefscape-render.png"
               />
@@ -45,7 +75,7 @@ export default function Sponsor() {
                 fetchPriority="high"
                 decoding="async"
                 data-nimg="1"
-                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
+                className="col-span-2 h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
                 style={{ color: "transparent" }}
                 src="/geese.jpg"
               />
@@ -75,7 +105,7 @@ export default function Sponsor() {
                 fetchPriority="high"
                 decoding="async"
                 data-nimg="1"
-                className="col-span-2 max-h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
+                className="col-span-2 h-96 w-full rounded-lg border border-[#d6ebfd30] object-cover object-[50%_25%] md:rounded-xl"
                 style={{ color: "transparent" }}
                 src="/robot.png"
               />

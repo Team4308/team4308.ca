@@ -1,6 +1,6 @@
 import Carousel from "@/components/c2";
 
-export default function Sponsor() {
+export default function ClubFair() {
   return (
     <div className="mx-auto mt-36 w-full max-w-5xl px-6 md:max-w-7xl">
       <div className="mb-10 mt-2 flex w-full flex-col items-center justify-between gap-2 md:gap-0">
