@@ -19,22 +19,15 @@
 }
 
 @keyframes open {
-  from {
-    max-height: 0;
-  }
-  to {
-    max-height: 100px;
-  }
+  from { max-height: 0; }
+  to { max-height: 200px; }
 }
 
-.content {
-  transform-origin: top center;
-  overflow: hidden;
-}
 .content[data-state="open"] {
   animation: open ease-in-out 400ms;
 }
 
+/*This has be in css because of mobile*/
 .trigger:hover {
   color: var(--nav-hover);
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const jostFont = Jost({
   variable: "--font-jost-mono",
@@ -22,10 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
       <body
-        className={`${jostFont.className} antialiased bg-background color-foreground`}
+        className={`${jostFont.className} antialiased bg-background color-foreground flex flex-col min-h-screen pt-16`}
       >
         <NavBar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
