@@ -56,10 +56,10 @@ export default function NavBar() {
 
   return (
     <NavigationMenu.Root 
-      className="select-none z-50 fixed flex flex-row top-0 bg-size-[100%] w-screen px-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%] 
+      className="select-none z-50 fixed flex flex-row top-0 bg-size-[100%] w-full px-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%] 
                  py-3 items-center bg-foreground text-background text-lg font-semibold transition-none"
     >
-      <Logo className="mr-auto md:ml-1"/>
+      <Logo className="mr-auto md:ml-2"/>
       <div className={`md:hidden justify-self-end size-9 ${nav ? "z-50" : "z-51"}`} onClick={()=>setNav(true)}><HamburgerMenuIcon className="size-full"/></div>
 
       <div 
@@ -108,4 +108,4 @@ function Seperator() {
 }
 
 const transition = "ease-in-out duration-200";
-const trigger = `md:p-1 trigger transition-colors ease-in-out duration-400`;
+const trigger = `md:p-2 trigger transition-colors ease-in-out duration-400`;

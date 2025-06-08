@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="w-screen bg-foreground text-background px-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%] py-4 mt-auto flex-row flex py-6">
+    <div className="w-full bg-foreground text-background px-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%] py-4 mt-auto flex-row flex py-6">
       <div className="flex flex-col md:flex-row mx-auto gap-4 md:gap-10 items-center">
         <ul className="flex flex-row gap-10">
           <Link href="https://instagram.com/frc4308/" target="_blank">

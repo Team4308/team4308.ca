@@ -19,12 +19,20 @@
 }
 
 @keyframes open {
-  from { max-height: 0; }
-  to { max-height: 200px; }
+  from { max-height: 0px; }
+  to { max-height: 100px; }
+}
+
+@keyframes close {
+  from { max-height: 100px; }
+  to { max-height: 0px; }
 }
 
 .content[data-state="open"] {
   animation: open ease-in-out 400ms;
+}
+.content[data-state="closed"] {
+  animation: close ease-in-out 400ms;
 }
 
 /*This has be in css because of mobile*/
