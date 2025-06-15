@@ -19,13 +19,21 @@
 }
 
 @keyframes open {
-  from { max-height: 0px; }
-  to { max-height: 100px; }
+  from {
+    max-height: 0px;
+  }
+  to {
+    max-height: 100px;
+  }
 }
 
 @keyframes close {
-  from { max-height: 100px; }
-  to { max-height: 0px; }
+  from {
+    max-height: 100px;
+  }
+  to {
+    max-height: 0px;
+  }
 }
 
 .content[data-state="open"] {
@@ -37,5 +45,5 @@
 
 /*This has be in css because of mobile*/
 .trigger:hover {
-  color: var(--nav-hover);
+  @apply text-nav-hover;
 }
