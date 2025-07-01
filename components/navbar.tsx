@@ -75,7 +75,7 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-foreground text-background fixed top-0 z-50 flex w-full flex-row items-center bg-size-[100%] px-6 py-3 text-lg font-semibold transition-none select-none lg:px-[10%] xl:px-[15%] 2xl:px-[20%]">
+    <NavigationMenu.Root className="bg-foreground text-background fixed top-0 z-50 flex w-full flex-row items-center bg-size-[100%] px-6 py-3 text-lg font-semibold transition-none select-none max-sm:overflow-y-scroll lg:px-[10%] xl:px-[15%] 2xl:px-[20%]">
       <Logo className="mr-auto md:ml-2" />
       <div
         className={`size-9 md:hidden ${nav ? "z-50" : "z-51"}`}
@@ -90,7 +90,7 @@ export default function NavBar() {
       />
 
       <NavigationMenu.List
-        className={`${nav ? "left-0" : "left-[-65%]"} bg-foreground fixed top-0 z-50 flex h-full w-[65%] flex-col gap-4 px-10 transition-[left] md:static md:w-auto md:flex-row md:items-center md:gap-2 md:p-0 ${transition} overflow-scroll md:transition-none`}
+        className={`${nav ? "left-0" : "left-[-65%]"} bg-foreground fixed top-0 z-50 flex h-full w-[65%] flex-col gap-4 px-10 transition-[left] md:static md:w-auto md:flex-row md:items-center md:gap-2 md:p-0 ${transition} md:transition-none`}
       >
         <Logo className="mb-6 md:hidden" />
 
@@ -126,7 +126,7 @@ export default function NavBar() {
   );
 }
 
-function Logo({ className }: { className: string | undefined }) {
+function Logo({ className }: { className?: string }) {
   return (
     <Image
       src="/logo.png"
