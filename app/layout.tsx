@@ -26,10 +26,12 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       />
       <body
-        className={`${jostFont.className} bg-background text-foreground flex min-h-screen flex-col pt-16 antialiased`}
+        className={`${jostFont.className} bg-background text-text flex min-h-screen flex-col pt-16 antialiased`}
       >
         <NavBar />
-        {children}
+        <div className="text-foreground mx-auto my-16 w-full max-w-7xl px-4">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

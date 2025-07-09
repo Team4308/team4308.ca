@@ -4,13 +4,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="bg-foreground text-background mt-auto flex w-full flex-row px-6 py-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%]">
+    <div className="bg-nav text-background mt-auto flex w-full flex-row px-6 py-6 lg:px-[10%] xl:px-[15%] 2xl:px-[20%]">
       <div className="mx-auto flex flex-col items-center gap-4 md:flex-row md:gap-10">
         <ul className="flex flex-row gap-10">
           <Link href="https://instagram.com/frc4308/" target="_blank">
             <InstagramLogoIcon className="size-10" />
           </Link>
-          <Link href="https://www.youtube.com/@TeamAbsoluteRobotics">
+          <Link
+            href="https://www.youtube.com/@TeamAbsoluteRobotics"
+            target="_blank"
+            prefetch={false}
+          >
             <Image
               src="/yt_icon.png"
               alt=""
@@ -19,7 +23,11 @@ export default function Footer() {
               className="size-10 object-contain"
             />
           </Link>
-          <Link href="https://github.com/Team4308/" target="_blank">
+          <Link
+            href="https://github.com/Team4308/"
+            target="_blank"
+            prefetch={false}
+          >
             <GitHubLogoIcon className="size-10" />
           </Link>
         </ul>
@@ -27,6 +35,7 @@ export default function Footer() {
         <Link
           href="mailto:contact@4308.ca"
           className="text-xl font-medium underline"
+          prefetch={false}
         >
           contact@4308.ca
         </Link>

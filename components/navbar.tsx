@@ -75,53 +75,52 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-foreground text-background fixed top-0 z-50 flex w-full flex-row items-center bg-size-[100%] px-6 py-3 text-lg font-semibold transition-none select-none max-sm:overflow-y-scroll lg:px-[10%] xl:px-[15%] 2xl:px-[20%]">
-      <Logo className="mr-auto md:ml-2" />
-      <div
-        className={`size-9 md:hidden ${nav ? "z-50" : "z-51"}`}
-        onClick={() => setNav(true)}
-      >
-        <HamburgerMenuIcon className="size-full" />
+    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full bg-size-[100%] px-4 py-3 text-lg font-semibold transition-none select-none">
+      <div className="mx-auto flex w-full max-w-7xl flex-row items-center">
+        <Logo className="mr-auto" />
+        <div className={`size-9 md:hidden`} onClick={() => setNav(true)}>
+          <HamburgerMenuIcon className="size-full" />
+        </div>
+
+        <div
+          className={`fixed top-0 left-0 flex h-screen w-screen bg-black md:hidden ${nav ? "opacity-30" : "pointer-events-none opacity-0"} transition-opacity ${transition}`}
+          onClick={() => setNav(false)}
+        />
+
+        <NavigationMenu.List
+          className={`${nav ? "left-0" : "left-[-65%]"} bg-nav fixed top-0 flex h-full w-[65%] flex-col gap-4 px-8 transition-[left] md:static md:w-auto md:flex-row md:items-center md:gap-2 md:p-0 ${transition} md:transition-none`}
+        >
+          <Logo className="my-6 md:hidden" />
+
+          <SimpleItem href="/" label="Home" />
+          <Seperator />
+
+          <SimpleItem href="/about" label="About Us" />
+          <Seperator />
+
+          <ComplexItem
+            label="Outreach"
+            hrefBase="/outreach"
+            items={[
+              { href: "/fll", label: "FLL" },
+              { href: "/tree-planting", label: "Tree Planting" },
+            ]}
+          />
+          <Seperator />
+
+          <ComplexItem
+            label="Resources"
+            hrefBase="/resources"
+            items={[
+              { href: "/docs", label: "Documentation" },
+              { href: "/blog", label: "Blog" },
+            ]}
+          />
+          <Seperator />
+
+          <SimpleItem href="/sponsors" label="Sponsors" />
+        </NavigationMenu.List>
       </div>
-
-      <div
-        className={`fixed top-0 left-0 z-50 flex h-screen w-screen bg-black md:hidden ${nav ? "opacity-30" : "opacity-0"} transition-opacity ${transition}`}
-        onClick={() => setNav(false)}
-      />
-
-      <NavigationMenu.List
-        className={`${nav ? "left-0" : "left-[-65%]"} bg-foreground fixed top-0 z-50 flex h-full w-[65%] flex-col gap-4 px-10 transition-[left] md:static md:w-auto md:flex-row md:items-center md:gap-2 md:p-0 ${transition} md:transition-none`}
-      >
-        <Logo className="mb-6 md:hidden" />
-
-        <SimpleItem href="/" label="Home" />
-        <Seperator />
-
-        <SimpleItem href="/about" label="About Us" />
-        <Seperator />
-
-        <ComplexItem
-          label="Outreach"
-          hrefBase="/outreach"
-          items={[
-            { href: "/fll", label: "FLL" },
-            { href: "/tree-planting", label: "Tree Planting" },
-          ]}
-        />
-        <Seperator />
-
-        <ComplexItem
-          label="Resources"
-          hrefBase="/resources"
-          items={[
-            { href: "/docs", label: "Documentation" },
-            { href: "/blogs", label: "Blogs" },
-          ]}
-        />
-        <Seperator />
-
-        <SimpleItem href="/sponsors" label="Sponsors" />
-      </NavigationMenu.List>
     </NavigationMenu.Root>
   );
 }

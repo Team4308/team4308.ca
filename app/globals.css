@@ -2,20 +2,26 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #750e25;
+  --foreground: #282828;
+  --nav: #750e25;
   --nav-dropdown: #8c112c;
   --nav-hover: #ccb1b7;
   --nav-current: #ab858d;
+  --date: #4a5565;
+  --link: #2b7fff;
+  --link-hover: #1447e6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-nav: var(--nav);
   --color-nav-dropdown: var(--nav-dropdown);
   --color-nav-hover: var(--nav-hover);
   --color-nav-current: var(--nav-current);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-date: var(--date);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
 }
 
 @keyframes open {
