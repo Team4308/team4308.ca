@@ -1,6 +1,7 @@
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import Image from "next/image";
 import Link from "next/link";
+import path from "path";
 
 function className(cls: string): MarkdownToJSX.Override {
   return { props: { className: cls } };
@@ -8,10 +9,10 @@ function className(cls: string): MarkdownToJSX.Override {
 
 export default function CustomMarkdown({
   children,
-  path,
+  dir,
 }: {
   children: string;
-  path: string;
+  dir: string;
 }) {
   function img({
     title,
@@ -25,7 +26,7 @@ export default function CustomMarkdown({
     const classes = title.split(" ");
     return (
       <Image
-        src={`/images${path}/${src}`}
+        src={path.join("/images/", dir, src)}
         alt={alt || ""}
         width={parseInt(classes[0])}
         height={parseInt(classes[1])}

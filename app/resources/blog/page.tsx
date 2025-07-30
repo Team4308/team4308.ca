@@ -2,17 +2,26 @@ import fs from "fs";
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
+import path from "path";
 
 export default function Blog() {
-  const files = fs.readdirSync(process.cwd() + "/blog/");
+  const files = fs.readdirSync(path.join(process.cwd(), "/blog"));
   const blogs = files.map((file) => {
-    const slug = file.replace(".md", "");
-    const blog = matter(fs.readFileSync(process.cwd() + "/blog/" + file));
+    return {
+      blog: matter(fs.readFileSync(path.join(process.cwd(), "/blog", file))),
+      slug: file.replace(".md", ""),
+    };
+  });
+  blogs.sort((obj1, obj2) => {
+    return Date.parse(obj2.blog.data.date) - Date.parse(obj1.blog.data.date);
+  });
+
+  const previews = blogs.map(({ blog, slug }) => {
     return (
       <li key={slug}>
         <Link href={`/resources/blog/${slug}`}>
           <Image
-            src={`/images/blog/${slug}/${blog.data.thumbnail}`}
+            src={path.join("/images/blog/", slug, blog.data.thumbnail)}
             alt=""
             width={900}
             height={600}
@@ -29,7 +38,7 @@ export default function Blog() {
   return (
     <>
       <h1 className="text-nav mb-16 text-6xl font-medium">Blog</h1>
-      <ul className="grid grid-cols-2 gap-6 max-sm:grid-cols-1">{blogs}</ul>
+      <ul className="grid grid-cols-2 gap-6 max-sm:grid-cols-1">{previews}</ul>
     </>
   );
 }
