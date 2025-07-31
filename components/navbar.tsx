@@ -49,7 +49,7 @@ export default function NavBar() {
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="content md:bg-background flex overflow-hidden text-nowrap max-sm:px-6 md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%] md:text-center">
+        <NavigationMenu.Content className="content md:bg-background flex overflow-hidden rounded-lg text-nowrap max-sm:px-6 md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%] md:text-center">
           <ul className="flex flex-col gap-2 md:items-center md:gap-px">
             <div className="h-0 md:hidden" />
             {items.map(({ href, label }) => {

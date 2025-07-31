@@ -18,8 +18,8 @@ export default function Footer() {
             <Image
               src="/yt_icon.png"
               alt=""
-              width={734}
-              height={518}
+              width={512}
+              height={512}
               className="size-10 object-contain"
             />
           </Link>

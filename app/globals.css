@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #eeeeee;
   --foreground: #282828;
-  --nav: #750e25;
-  --nav-dropdown: #8c112c;
+  --nav: #661527;
+  --nav-dropdown: #751227;
   --nav-hover: #ccb1b7;
   --nav-current: #ab858d;
   --date: #4a5565;
