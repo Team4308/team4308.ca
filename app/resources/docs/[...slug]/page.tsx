@@ -36,8 +36,8 @@ export default async function Blog({
   return (
     <div className="flex w-full flex-row">
       <DocsSidebar slug={slug} />
-      <div className="flex-1">
-        <p className="text-center text-5xl font-medium">{doc.data.title}</p>
+      <div className="ml-12 flex-1 py-10">
+        <p className="text-5xl font-medium">{doc.data.title}</p>
         <CustomMarkdown dir={`/docs/${slug.join("/")}`}>
           {doc.content}
         </CustomMarkdown>

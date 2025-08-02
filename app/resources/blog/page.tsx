@@ -1,15 +1,15 @@
-import fs from "fs";
-import matter from "gray-matter";
+import { getBlogAsMatter, getBlogs } from "@/utils/blog-cache";
 import Image from "next/image";
 import Link from "next/link";
 import path from "path";
 
 export default function Blog() {
-  const files = fs.readdirSync(path.join(process.cwd(), "/blog"));
-  const blogs = files.map((file) => {
+  const blogs = getBlogs().map((blog) => {
+    const matter = getBlogAsMatter(blog);
     return {
-      blog: matter(fs.readFileSync(path.join(process.cwd(), "/blog", file))),
-      slug: file.replace(".md", ""),
+      blog: matter,
+      slug: blog,
+      date: Date.parse(matter.data.date),
     };
   });
   blogs.sort((obj1, obj2) => {

@@ -1,4 +1,8 @@
-import { DocsStructure, getDocsStructure } from "@/utils/docs-structure";
+import {
+  DocsStructure,
+  getDocsStructure,
+  readDocsAsMatter,
+} from "@/utils/docs-structure";
 import { ReactNode } from "react";
 import SideBarItem from "./sidebar-item";
 
@@ -15,7 +19,7 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
       res.push(
         <SideBarItem
           key={key}
-          title={key}
+          title={readDocsAsMatter(t).data.title}
           hasChildren={children.length > 0}
           clickable={depth > 0}
           path={t}
