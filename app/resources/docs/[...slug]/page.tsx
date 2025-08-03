@@ -19,9 +19,8 @@ function* generateSlugs(
 
 export async function generateStaticParams() {
   const res: { slug: string[] }[] = [];
-  const structure = getDocsStructure();
-  for (const key in structure)
-    for (const slug of generateSlugs(structure[key], [key]))
+  for (const slug of generateSlugs(getDocsStructure()))
+    if (readDocsAsMatter(slug.join("/")).content.length > 0)
       res.push({ slug: slug });
   return res;
 }

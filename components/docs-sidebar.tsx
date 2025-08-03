@@ -16,16 +16,17 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
     for (const key in structure) {
       const t = `${temp}/${key}`;
       const children = generateList(structure[key], t, depth + 1);
+      const matter = readDocsAsMatter(t);
+
       res.push(
         <SideBarItem
           key={key}
-          title={readDocsAsMatter(t).data.title}
-          hasChildren={children.length > 0}
-          clickable={depth > 0}
-          path={t}
-          defaultOpen={slug !== undefined && slug[depth] === key}
+          title={matter.data.title}
+          hasContent={matter.content.length > 0}
+          hrefPath={t}
+          onRoute={slug !== undefined && slug[depth] === key}
         >
-          {children.length > 0 && children}
+          {children}
         </SideBarItem>
       );
     }
@@ -33,7 +34,7 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
   }
 
   return (
-    <div className="bg-nav text-background sticky top-20 my-4 flex h-[calc(100vh-24*var(--spacing))] w-80 flex-col overflow-y-scroll rounded-lg p-8 text-lg">
+    <div className="bg-nav text-background sticky top-20 -mt-12 flex h-[calc(100vh-24*var(--spacing))] w-80 flex-col overflow-y-scroll rounded-lg p-8 text-lg">
       {slug === undefined
         ? generateList(getDocsStructure())
         : generateList(getDocsStructure(slug[0]), slug[0], 1)}

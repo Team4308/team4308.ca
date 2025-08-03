@@ -4,7 +4,7 @@ export default function Docs() {
   return (
     <div className="flex w-full flex-row">
       <DocsSidebar />
-      <div className="flex-1"></div>
+      <div className="h-2000 flex-1"></div>
     </div>
   );
 }
