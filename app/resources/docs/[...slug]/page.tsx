@@ -25,7 +25,7 @@ export async function generateStaticParams() {
   return res;
 }
 
-export default async function Blog({
+export default async function Docs({
   params,
 }: {
   params: Promise<{ slug: string[] }>;
@@ -36,7 +36,7 @@ export default async function Blog({
     <div className="flex w-full flex-row">
       <DocsSidebar slug={slug} />
       <div className="ml-12 flex-1 py-10">
-        <p className="text-5xl font-medium">{doc.data.title}</p>
+        <p className="text-5xl font-medium mb-6">{doc.data.title}</p>
         <CustomMarkdown dir={`/docs/${slug.join("/")}`}>
           {doc.content}
         </CustomMarkdown>

@@ -29,7 +29,7 @@ export default class SideBarItem extends React.Component<Props, State> {
   }
 
   render(): ReactNode {
-    const cls = this.props.onRoute ? "text-blue-200" : "";
+    const cls = `text-nowrap pl-2 ${this.props.onRoute ? "text-blue-200" : ""}`;
     return (
       <>
         <div className="flex w-full flex-row">

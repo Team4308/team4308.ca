@@ -30,7 +30,7 @@ export default function CustomMarkdown({
         alt={alt || ""}
         width={parseInt(classes[0])}
         height={parseInt(classes[1])}
-        className={`mx-auto object-cover ${classes.splice(2).join(" ")}`}
+        className={`mx-auto object-cover w-full rounded-lg ${classes.splice(2).join(" ")}`}
       />
     );
   }
