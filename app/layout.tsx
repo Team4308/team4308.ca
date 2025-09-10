@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${jostFont.className} bg-background text-text flex flex-col antialiased`}
       >
         <NavBar />
-        <div className="text-foreground mx-auto w-full max-w-7xl pt-16 min-h-screen">
+        <div className="text-foreground mx-auto w-full px-6 pt-16 min-h-screen">
           {children}
         </div>
         <Footer />

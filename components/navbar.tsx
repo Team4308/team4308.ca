@@ -1,19 +1,11 @@
 "use client";
 
-import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NavigationMenu } from "radix-ui";
-import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const [nav, setNav] = useState(false);
-  useEffect(() => {
-    const listener = () => setNav(false);
-    window.addEventListener("orientationchange", listener);
-    return () => window.removeEventListener("orientationchange", listener);
-  });
-
   const path = usePathname();
 
   function SimpleItem({ href, label }: { href: string; label: string }) {
@@ -49,14 +41,13 @@ export default function NavBar() {
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="content md:bg-background flex overflow-hidden rounded-lg text-nowrap max-sm:px-6 md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%] md:text-center">
-          <ul className="flex flex-col gap-2 md:items-center md:gap-px">
-            <div className="h-0 md:hidden" />
+        <NavigationMenu.Content className="content bg-background flex overflow-hidden rounded-lg text-nowrap absolute top-[100%] left-[50%] translate-x-[-50%] text-center">
+          <ul className="flex flex-col items-center gap-px">
             {items.map(({ href, label }) => {
               return (
                 <div
                   key={label}
-                  className="md:bg-nav-dropdown w-full md:px-5 md:py-2"
+                  className="bg-nav-dropdown w-full px-5 py-2"
                 >
                   <NavigationMenu.Link
                     href={hrefBase + href}
@@ -67,7 +58,6 @@ export default function NavBar() {
                 </div>
               );
             })}
-            <div className="h-2 md:hidden" />
           </ul>
         </NavigationMenu.Content>
       </NavigationMenu.Item>
@@ -75,52 +65,40 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full bg-size-[100%] px-4 py-3 text-lg font-semibold transition-none select-none">
-      <div className="mx-auto flex w-full max-w-7xl flex-row items-center">
-        <Logo className="mr-auto" />
-        <div className={`size-9 md:hidden`} onClick={() => setNav(true)}>
-          <HamburgerMenuIcon className="size-full" />
-        </div>
+    <NavigationMenu.Root className="bg-nav text-background fixed flex flex-row items-center top-0 z-50 w-full bg-size-[100%] px-2 py-2 text-lg font-semibold transition-none select-none">
+      <Logo className="ml-2 mr-auto" />
 
-        <div
-          className={`fixed top-0 left-0 flex h-screen w-screen bg-black md:hidden ${nav ? "opacity-30" : "pointer-events-none opacity-0"} transition-opacity ${transition}`}
-          onClick={() => setNav(false)}
+      <NavigationMenu.List
+        className={`bg-nav top-0 flex h-full transition-[left] static w-auto flex-row items-center gap-2 p-0`}
+      >
+        <SimpleItem href="/" label="Home" />
+        <Seperator />
+
+        <SimpleItem href="/about" label="About Us" />
+        <Seperator />
+
+        <ComplexItem
+          label="Outreach"
+          hrefBase="/outreach"
+          items={[
+            { href: "/fll", label: "FLL" },
+            { href: "/tree-planting", label: "Tree Planting" },
+          ]}
         />
+        <Seperator />
 
-        <NavigationMenu.List
-          className={`${nav ? "left-0" : "left-[-65%]"} bg-nav fixed top-0 flex h-full w-[65%] flex-col gap-4 px-8 transition-[left] md:static md:w-auto md:flex-row md:items-center md:gap-2 md:p-0 ${transition} md:transition-none`}
-        >
-          <Logo className="my-6 md:hidden" />
+        <ComplexItem
+          label="Resources"
+          hrefBase="/resources"
+          items={[
+            { href: "/docs", label: "Documentation" },
+            { href: "/blog", label: "Blog" },
+          ]}
+        />
+        <Seperator />
 
-          <SimpleItem href="/" label="Home" />
-          <Seperator />
-
-          <SimpleItem href="/about" label="About Us" />
-          <Seperator />
-
-          <ComplexItem
-            label="Outreach"
-            hrefBase="/outreach"
-            items={[
-              { href: "/fll", label: "FLL" },
-              { href: "/tree-planting", label: "Tree Planting" },
-            ]}
-          />
-          <Seperator />
-
-          <ComplexItem
-            label="Resources"
-            hrefBase="/resources"
-            items={[
-              { href: "/docs", label: "Documentation" },
-              { href: "/blog", label: "Blog" },
-            ]}
-          />
-          <Seperator />
-
-          <SimpleItem href="/sponsors" label="Sponsors" />
-        </NavigationMenu.List>
-      </div>
+        <SimpleItem href="/sponsors" label="Sponsors" />
+      </NavigationMenu.List>
     </NavigationMenu.Root>
   );
 }
@@ -132,14 +110,14 @@ function Logo({ className }: { className?: string }) {
       alt="logo"
       width={128}
       height={128}
-      className={`size-10 ${className}`}
+      className={`size-10 my-1 ${className}`}
     />
   );
 }
 
 function Seperator() {
-  return <div className="bg-background h-px w-full md:h-9 md:w-px" />;
+  return <div className="bg-background h-9 w-px" />;
 }
 
 const transition = "ease-in-out duration-200";
-const trigger = `md:px-2 md:py-1 trigger transition-colors ease-in-out duration-400`;
+const trigger = `px-2 py-1 trigger transition-colors ease-in-out duration-400`;

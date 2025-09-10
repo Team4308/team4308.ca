@@ -37,8 +37,8 @@ export default function Blog() {
 
   return (
     <>
-      <h1 className="text-nav mt-12 mb-8 text-6xl font-medium">Blog</h1>
-      <ul className="grid grid-cols-2 gap-6 max-sm:grid-cols-1">{previews}</ul>
+      <h1 className="text-nav mt-6 mb-8 text-center text-7xl font-medium">Blog</h1>
+      <ul className="mx-auto max-w-7xl grid grid-cols-2 gap-6">{previews}</ul>
     </>
   );
 }

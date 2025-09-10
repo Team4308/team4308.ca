@@ -23,14 +23,14 @@ export default function CustomMarkdown({
     alt: string;
     src: string;
   }) {
-    const classes = title.split(" ");
+    const dim = title.split(" ");
     return (
       <Image
         src={path.join("/images/", dir, src)}
         alt={alt || ""}
-        width={parseInt(classes[0])}
-        height={parseInt(classes[1])}
-        className={`mx-auto object-cover w-full rounded-lg ${classes.splice(2).join(" ")}`}
+        width={parseInt(dim[0])}
+        height={parseInt(dim[1])}
+        className={`mx-auto object-cover w-full rounded-lg`}
       />
     );
   }
