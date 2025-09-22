@@ -41,21 +41,28 @@ export default function NavBar() {
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="content bg-background flex overflow-hidden rounded-lg text-nowrap absolute top-[100%] left-[50%] translate-x-[-50%] text-center">
-          <ul className="flex flex-col items-center gap-px">
-            {items.map(({ href, label }) => {
+        <NavigationMenu.Content className="content rounded-lg bg-nav-dropdown overflow-hidden absolute top-[100%] left-[50%] translate-x-[-50%]">
+          <ul className="flex flex-col items-center py-[calc(0.5*var(--spacing)]">
+            {items.map(({ href, label }, index) => {
               return (
-                <div
-                  key={label}
-                  className="bg-nav-dropdown w-full px-5 py-2"
-                >
-                  <NavigationMenu.Link
-                    href={hrefBase + href}
-                    className={`${path === hrefBase + href ? "text-nav-current" : ""} ${trigger}`}
+                <>
+                  {
+                    index ?
+                      <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background" /> :
+                      <></>
+                  }
+                  <div
+                    key={label}
+                    className="w-full px-4 py-2 text-nowrap text-center"
                   >
-                    {label}
-                  </NavigationMenu.Link>
-                </div>
+                    <NavigationMenu.Link
+                      href={hrefBase + href}
+                      className={`${path === hrefBase + href ? "text-nav-current" : ""} ${trigger}`}
+                    >
+                      {label}
+                    </NavigationMenu.Link>
+                  </div>
+                </>
               );
             })}
           </ul>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
+import 'react-multi-carousel/lib/styles.css';
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
 
@@ -29,7 +30,7 @@ export default function RootLayout({
         className={`${jostFont.className} bg-background text-text flex flex-col antialiased`}
       >
         <NavBar />
-        <div className="text-foreground mx-auto w-full px-6 pt-16 min-h-screen">
+        <div className="text-foreground mx-auto w-full pt-16 min-h-screen">
           {children}
         </div>
         <Footer />

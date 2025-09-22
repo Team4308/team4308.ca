@@ -14,7 +14,8 @@
     "next": "15.3.2",
     "radix-ui": "^1.4.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-multi-carousel": "^2.8.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
