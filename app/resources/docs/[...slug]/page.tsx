@@ -33,7 +33,7 @@ export default async function Docs({
   const { slug } = await params;
   const doc = readDocsAsMatter(slug.join("/"));
   return (
-    <div className="flex w-full flex-row">
+    <div className="flex w-full px-20 flex-row">
       <DocsSidebar slug={slug} />
       <div className="ml-12 flex-1 py-10">
         <p className="text-5xl font-medium mb-6">{doc.data.title}</p>

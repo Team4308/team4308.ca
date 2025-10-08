@@ -21,11 +21,11 @@ export default function Blog() {
       <li key={slug}>
         <Link href={`/resources/blog/${slug}`}>
           <Image
-            src={path.join("/images/blog/", slug, blog.data.thumbnail)}
+            src={path.join("/res/blog/", slug, blog.data.thumbnail)}
             alt=""
-            width={900}
-            height={600}
-            className="aspect-3/2 w-full rounded-lg object-cover"
+            width={1200}
+            height={800}
+            className={`aspect-3/2 w-full rounded-lg object-cover ${blog.data.thumbnailClass}`}
             placeholder="empty"
           />
           <p className="mt-2 text-3xl">{blog.data.title}</p>
@@ -38,7 +38,7 @@ export default function Blog() {
   return (
     <>
       <h1 className="text-nav mt-6 mb-8 text-center text-7xl font-medium">Blog</h1>
-      <ul className="mx-auto max-w-7xl grid grid-cols-2 gap-6">{previews}</ul>
+      <ul className="mx-auto max-w-7xl grid grid-cols-2 gap-6 mb-10">{previews}</ul>
     </>
   );
 }

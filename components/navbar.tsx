@@ -45,11 +45,9 @@ export default function NavBar() {
           <ul className="flex flex-col items-center py-[calc(0.5*var(--spacing)]">
             {items.map(({ href, label }, index) => {
               return (
-                <>
-                  {
-                    index ?
-                      <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background" /> :
-                      <></>
+                <li key={index} className="w-full">
+                  {index > 0 &&
+                    <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background mx-auto" />
                   }
                   <div
                     key={label}
@@ -62,7 +60,7 @@ export default function NavBar() {
                       {label}
                     </NavigationMenu.Link>
                   </div>
-                </>
+                </li>
               );
             })}
           </ul>

@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
+@source "../app/";
+@source "../blog/";
+@source "../docs/";
+
 :root {
   --background: #eeeeee;
   --foreground: #282828;
   --nav: #661527;
-  --nav-dropdown: #751227;
+  --nav-dropdown: #851b32;
   --nav-hover: #ccb1b7;
   --nav-current: #ab858d;
   --date: #4a5565;
   --link: #2b7fff;
   --link-hover: #1447e6;
+  --sidebar-hover: #941f38;
 }
 
 @theme inline {
@@ -22,6 +27,7 @@
   --color-date: var(--date);
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
+  --color-sidebar-hover: var(--sidebar-hover);
 }
 
 @keyframes open {

@@ -2,37 +2,43 @@ import fs from "fs"
 import path from "path";
 import Image from "next/image";
 import CarouselWrapper from "./carousel-wrapper";
+import { CarouselProps } from "react-multi-carousel";
 
-type Props = {
+interface Props extends CarouselProps {
   src: string
-  width: number
-  height: number
-  className?: string
+  childClass?: string
 }
 
-function getSlides(src: string, width: number, height: number) {
+function getSlides(src: string, className?: string) {
   if (!src) return []
 
   const res = fs.readdirSync(path.join(process.cwd(), "public", src)).map((file) => {
     return (
-      <Image
-        src={path.join(src, file)}
-        width={width}
-        height={height}
-        alt=""
-        className="w-120 h-80 mx-auto object-cover rounded-lg"
-      />
+      <div className={`mx-auto relative ${className}`} key={file}>
+        <Image
+          src={path.join(src, file)}
+          fill
+          quality={100}
+          alt=""
+          className={`object-cover rounded-lg`}
+        />
+      </div>
     );
   })
   return res
 }
 
 export default function CustomCarousel(props: Props) {
-  const { src, width, height, className } = props
-  const slides = getSlides(src, width, height);
+  const slides = getSlides(props.src, props.childClass);
 
   return (
-    <CarouselWrapper className={`max-w-7xl mx-auto ${className}`}>
+    <CarouselWrapper
+      draggable={false}
+      swipeable={false}
+      pauseOnHover={false}
+      {...props}
+      className={`max-w-7xl mx-auto ${props.className}`}
+    >
       {...slides}
     </CarouselWrapper>
   );

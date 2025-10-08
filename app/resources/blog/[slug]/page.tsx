@@ -15,9 +15,9 @@ export default async function Blog({
   const { slug } = await params;
   const blog = getBlogAsMatter(slug);
   return (
-    <div className="mx-auto w-full max-w-4xl">
-      <p className="text-center text-5xl font-medium">{blog.data.title}</p>
-      <p className="text-date mt-4 mb-16 text-center text-lg">
+    <div className="mx-auto w-full max-w-4xl my-12">
+      <h1 className="text-center text-6xl font-medium">{blog.data.title}</h1>
+      <p className="text-date mt-4 mb-10 text-center text-lg">
         {blog.data.date}
       </p>
       <CustomMarkdown dir={`/blog/${slug}`}>{blog.content}</CustomMarkdown>
