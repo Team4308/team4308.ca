@@ -14,4 +14,4 @@ It stays ahead of the competition with advanced on-the-fly path planning auto al
 
 We're excited to see how Doohickey performs in the 2025 season, and we hope to see you at our competitions.
 
-![image](doohickey.png)
+![1920 x 1080](doohickey.png)

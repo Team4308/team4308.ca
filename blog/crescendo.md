@@ -6,4 +6,4 @@ title: "Crescendo: Whiplash"
 
 We're excited to unveil our 2024 FRC robot for the Crescendo season - Whiplash!
 
-![image](whiplash.png)
+![1350 x 1080](whiplash.png)

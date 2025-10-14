@@ -41,7 +41,8 @@ export default function CustomMarkdown({
       <Image
         src={realSrc}
         alt=""
-        fill
+        width={parseInt(alt.split("x")[0])}
+        height={parseInt(alt.split("x")[1])}
         className={`mx-auto object-cover w-full rounded-lg ${title}`}
       />
     );
