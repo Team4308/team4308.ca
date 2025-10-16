@@ -79,23 +79,23 @@ export default function Sponsor() {
         <div className="mt-16 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:max-w-7xl md:flex-row lg:grid-cols-3">
           <div className="group px-3 py-4 md:rounded-xl md:border md:border-[#d6ebfd30] md:px-5 md:py-6">
             <p className="mb-4 text-xl leading-8 leading-[130%] text-[#fcfdffef] md:leading-none">
-              Build
+              Mechanics
             </p>
             <ul className="list-inside list-disc space-y-2 marker:text-white">
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Designs the robot
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Prototype mechanisms to finalize design
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Prototype mechanisms for design
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Design the robot using CAD software
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Models robot using CAD software
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Manufacture and assemble the robot
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Manufacture and assemble robot
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Construct game pieces for each season
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Construct game pieces each season
               </li>
             </ul>
           </div>
@@ -104,60 +104,54 @@ export default function Sponsor() {
               Controls
             </p>
             <ul className="list-inside list-disc space-y-2 marker:text-white">
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Code robot control mechanisms
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Wire the robot&apos;s electrical systems
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Test and troubleshoot hardware and software issues
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Troubleshoot hardware and software
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Design electronics layout with build team
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Design electronics layout
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Configure robot sensors and vision systems
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Set up robot sensors & vision systems
               </li>
             </ul>
           </div>
           <div className="group px-3 py-4 md:rounded-xl md:border md:border-[#d6ebfd30] md:px-5 md:py-6">
             <p className="mb-4 text-xl leading-8 leading-[130%] text-[#fcfdffef] md:leading-none">
-              Competition
+              Information Technology
             </p>
             <ul className="list-inside list-disc space-y-2 marker:text-white">
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Ensures robot meets regulations
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
+                Designs and maintains team website
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Plans robot design criteria
-              </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
-                Plans match strategy
-              </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Develops scouting app
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Develops scouting website
               </li>
             </ul>
           </div>
           <div className="group px-3 py-4 md:rounded-xl md:border md:border-[#d6ebfd30] md:px-5 md:py-6">
             <p className="mb-4 text-xl leading-8 leading-[130%] text-[#fcfdffef] md:leading-none">
-              Marketing
+              Sponsorships & Outreach
             </p>
             <ul className="list-inside list-disc space-y-2 marker:text-white">
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Networks for sponsorships
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Cold calls for sponsorships
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Cold emails for sponsorships
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Door to door for sponsorships
               </li>
             </ul>
@@ -167,13 +161,13 @@ export default function Sponsor() {
               Media
             </p>
             <ul className="list-inside list-disc space-y-2 marker:text-white">
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Takes photos & videos of team events
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Creates social media posts
               </li>
-              <li className="pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal md:truncate">
+              <li className="break-words pl-2 text-sm leading-[1.6] text-[#f1f7feb5] group-hover:whitespace-normal">
                 Creates advertising videos
               </li>
             </ul>
