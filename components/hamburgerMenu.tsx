@@ -7,6 +7,13 @@ const MyComponent = () => {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
 
+  const menuLinks = [
+    ["Home", "/"],
+    ["Students", "/join"],
+    ["Sponsors", "/sponsor"],
+    ["Blog", "Blog"],
+  ];
+
   return (
     <div className="flex lg:hidden">
       <svg
@@ -42,26 +49,16 @@ const MyComponent = () => {
         </div>
         <hr className="mb-6 mt-1" />
         <ol className="space-y-4">
-          <li>
-            <Link href="/" className="text-lg">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/join" className="text-lg">
-              Students
-            </Link>
-          </li>
-          <li>
-            <Link href="/sponsor" className="text-lg">
-              Sponsors
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog" className="text-lg">
-              Blog
-            </Link>
-          </li>
+          {
+            // Should follow [text, link] format
+            menuLinks.map(([text, link]) => (
+              <li key={`menulink_${link}`}>
+                <Link href={link} className="text-lg" onClick={toggleOpen}>
+                  {text}
+                </Link>
+              </li>
+            ))
+          }
         </ol>
       </div>
     </div>
