@@ -15,7 +15,7 @@ export default function Sponsor() {
           </span>
         </p>
         <p className="mx-auto max-w-4xl text-balance px-1 text-neutral-400 md:text-[1.125rem] md:leading-[1.5]">
-          Register with Absolute Robotics for the Reefscape 24/25 FRC season.
+          Register with Absolute Robotics for the Rebuilt 25/26 FRC season.
         </p>
       </div>
       <div className="mx-auto w-11/12 max-w-5xl">
@@ -26,7 +26,7 @@ export default function Sponsor() {
           <li className="mb-10 ms-4">
             <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-600"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              November 10
+              October 15
             </time>
             <h3 className="text-lg font-semibold text-white">
               Subteam Decisions Released
@@ -39,11 +39,11 @@ export default function Sponsor() {
           <li className="mb-10 ms-4">
             <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-green-500"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              January 4
+              January 10
             </time>
             <h3 className="text-lg font-semibold text-white">Season Kickoff</h3>
             <p className="mb-4 text-base font-normal text-neutral-400">
-              The team will be heading over to UTM to watch the FRC Reefscape
+              The team will be heading over to UTM to watch the FRC Rebuilt
               kickoff livestream and learn how this year&apos;s game will be
               played. We will also begin discussions on how we will approach the
               game and what our strategy will be.
@@ -52,7 +52,7 @@ export default function Sponsor() {
           <li className="ms-4">
             <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-neutral-400"></div>
             <time className="mb-1 text-sm font-normal leading-none text-neutral-400">
-              January 5 - March XX
+              January 11 - March XX
             </time>
             <h3 className="text-lg font-semibold text-white">Build Season</h3>
             <p className="mb-4 text-base font-normal text-neutral-400">
