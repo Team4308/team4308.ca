@@ -58,7 +58,8 @@ function getSlides(src: string, className?: string) {
     return (
       <div className={`mx-auto relative ${className}`} key={file}>
         <Image
-          src={path.join(src, file)}
+        // `path.join` returns path with backslashes ('\'), while normal are required for the relative path to work
+          src={path.join(src, file).replace(/\\/g, '/')}
           fill
           quality={100}
           alt=""

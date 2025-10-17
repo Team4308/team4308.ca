@@ -15,6 +15,7 @@
   --link: #2b7fff;
   --link-hover: #1447e6;
   --sidebar-hover: #941f38;
+  --code-bg: #282c34;
 }
 
 @theme inline {
@@ -28,6 +29,7 @@
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
   --color-sidebar-hover: var(--sidebar-hover);
+  --color-code-bg: var(--code-bg);
 }
 
 @keyframes open {

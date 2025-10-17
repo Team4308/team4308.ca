@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import path from "path";
 import CustomCarousel from "./custom-carousel";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 function className(cls: string): MarkdownToJSX.Override {
   return { props: { className: cls } };
@@ -71,8 +73,51 @@ export default function CustomMarkdown({
   function video({ src, className }: { src: string, className?: string }) {
     return (
       <video controls className={className}>
-        <source src={path.join("/res", dir, src)} type={``} />
+        <source src={path.join("/res", dir, src).replace(/\\/g, '/')} type={``} />
       </video>
+    );
+  }
+
+  /** Code snippet
+   *  @usage Inside markdown files (.md) write a <code> element
+   *  - with the content followed by the format:
+   *    ```[language_extension]
+   *        [your_code]
+   *    ```
+   * */
+  function code({
+    className,
+    children,
+  }: {
+    className?: string;
+    children: string;
+  }) {
+    const language = className?.replace("lang-", "").replace("language-", "");
+
+    // Fenced code block (```tsx ... ```):
+    if (language) {
+      return (
+        <SyntaxHighlighter
+          style={coldarkDark}
+          language={language}
+          showLineNumbers
+          customStyle={{
+            borderRadius: "0.75rem",
+            padding: "1rem",
+            fontSize: "0.875rem",
+            background: "var(--code-bg, #282c34)",
+          }}
+        >
+          { String(children).replace(/\n$/, "") }
+        </SyntaxHighlighter>
+      );
+    }
+
+    // Inline code (`inline`)
+    return (
+      <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">
+        {children}
+      </code>
     );
   }
 
@@ -92,15 +137,10 @@ export default function CustomMarkdown({
           h1: className("text-5xl"),
           h2: className("text-4xl"),
           h3: className("text-3xl"),
-          img: {
-            component: img
-          },
-          video: {
-            component: video
-          },
-          a: {
-            component: a,
-          },
+          img:   { component: img },
+          video: { component: video },
+          a:     { component: a, },
+          code:  { component: code }
         },
       }}
     >

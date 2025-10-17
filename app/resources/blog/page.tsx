@@ -21,7 +21,7 @@ export default function Blog() {
       <li key={slug}>
         <Link href={`/resources/blog/${slug}`}>
           <Image
-            src={path.join("/res/blog/", slug, blog.data.thumbnail)}
+            src={path.join("/res/blog/", slug, blog.data.thumbnail).replace(/\\/g, '/')}
             alt=""
             width={1200}
             height={800}
