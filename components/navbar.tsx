@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDownIcon, Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { ChevronDownIcon, Cross1Icon, HamburgerMenuIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { NavigationMenu } from "radix-ui";
 import Image from "next/image";
@@ -43,17 +43,17 @@ export default function NavBar() {
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="content rounded bg-nav-dropdown overflow-hidden absolute top-[calc(100%+8px)] left-[50%] translate-x-[-50%]">
-          <ul className="flex flex-col items-center">
+        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[calc(100%+20px)] max-md:left-full md:left-[50%] translate-x-[-50%]">
+          <ul className="flex flex-col items-center min-w-48 w-full">
             {items.map(({ href, label }, index) => {
               return (
-                <li key={index} className="w-full">
+                <li key={index} className="w-full group">
                   {index > 0 &&
                     <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background/38 mx-auto" />
                   }
                   <div
                     key={label}
-                    className="flex w-full *:w-full px-4 py-2 text-nowrap text-center"
+                    className="flex items-center justify-between gap-4 w-full px-4 py-2 text-nowrap text-left"
                   >
                     <NavigationMenu.Link
                       href={hrefBase + href}
@@ -61,6 +61,7 @@ export default function NavBar() {
                     >
                       {label}
                     </NavigationMenu.Link>
+                    <ArrowRightIcon className="opacity-0 -translate-x-full inline-flex size-4 group-hover:translate-0 group-hover:opacity-100" />
                   </div>
                 </li>
               );
@@ -72,7 +73,7 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg font-semibold select-none transition-none">
+    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none">
       <div className="max-md:container max-md:justify-between min-md:justify-around mx-auto flex h-full flex-row items-center gap-8">
         <Logo isOpen={isMobileOpen} />
 
