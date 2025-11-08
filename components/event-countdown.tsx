@@ -14,7 +14,7 @@ function Box({ num, label, notAddS, addLeadingZero }: { num: number, label: stri
 }
 
 export default function EventCountdown() {
-  const eventTime = new Date("09:00 November 2, 2025 EST");
+  const eventTime = new Date("08:00 March 21, 2026 EST");
   const [isClient, setIsClient] = useState(false);
   const [timeDiff, setTimeDiff] = useState(Math.floor((+eventTime - +new Date()) / 1000));
 
@@ -28,7 +28,7 @@ export default function EventCountdown() {
   return (
     <>
       <h2 className="text-center mt-12 text-xl">Countdown to next event:</h2>
-      <h1 className="text-center text-5xl">Overtime Sunday</h1>
+      <h1 className="text-center text-5xl">Ontario District McMaster University Event </h1>
       {
         isClient && <div className="justify-center mt-4 flex flex-row gap-8">
           <Box num={Math.floor(timeDiff / 60 / 60 / 24)} label="Day" />
