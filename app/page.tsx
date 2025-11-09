@@ -12,7 +12,7 @@ export default function Home() {
           height={4000}
           src={"/big-image.jpg"}
           alt=""
-          className="w-screen h-[calc(100vh-16*var(--spacing))] object-cover brightness-67"
+          className="w-screen h-[calc(100vh-20*var(--spacing))] object-cover brightness-67"
         />
 
         <div className="absolute top-0 w-full h-full flex flex-row">
@@ -45,7 +45,7 @@ export default function Home() {
 
       <EventCountdown />
 
-      <h3 className="text-center text-2xl mt-30 mb-3">Generously sponsored by:</h3>
+      <h3 className="text-center text-2xl mt-20 mb-3">Generously sponsored by:</h3>
 
       <div className="mx-[15vw] mb-10 flex flex-row flex-wrap justify-center gap-x-20">
         <SponsorImage src="rotary.png" width={1065} height={338} href="https://rotaryclubofmississauga.com/" />

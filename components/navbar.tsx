@@ -49,7 +49,7 @@ export default function NavBar() {
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[100%] max-md:left-full md:left-[50%] translate-x-[-50%]">
+        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[calc(100%+2*var(--spacing))] max-md:left-full md:left-[50%] translate-x-[-50%]">
           <ul className="flex flex-col items-center min-w-48 w-full">
             {items.map(({ href, label }, index) => {
               return (

@@ -51,7 +51,7 @@ export default function SponsorTiers() {
         <tbody>
           {benefits.map((benefit, rowIdx) => (
             <tr key={benefit} className="border-t border-nav divide-x">
-              <td className="pl-5 py-4 text-2xl text-left font-medium">{benefit}</td>
+              <td className="pl-5 py-4 text-xl text-left font-medium">{benefit}</td>
               {benefitsByTier[rowIdx].map((has, colIdx) => (
                 <td key={colIdx} className="p-3 text-center">
                   {has && (

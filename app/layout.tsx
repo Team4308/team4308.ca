@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import 'react-multi-carousel/lib/styles.css';
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-const jostFont = Jost({
-  variable: "--font-jost-mono",
+const rubikFont = Rubik({
   subsets: ["latin"],
 });
 
@@ -27,10 +26,10 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       />
       <body
-        className={`${jostFont.className} bg-background text-text flex flex-col antialiased`}
+        className={`${rubikFont.className} bg-background text-text flex flex-col antialiased`}
       >
         <NavBar />
-        <div className="text-foreground mx-auto w-full pt-16 min-h-screen">
+        <div className="text-foreground mx-auto w-full pt-20 min-h-screen">
           {children}
         </div>
         <Footer />
