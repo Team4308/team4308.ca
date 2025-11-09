@@ -34,7 +34,7 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
   }
 
   return (
-    <div className="bg-nav text-background sticky top-20 my-4 flex h-[calc(100vh-24*var(--spacing))] w-80 flex-col overflow-y-scroll rounded-lg p-3 text-lg gap-1">
+    <div className="bg-nav text-background sticky top-24 my-4 flex h-[calc(100vh-28*var(--spacing))] w-80 flex-col overflow-y-scroll rounded-lg p-3 text-lg gap-1">
       {slug === undefined
         ? generateList(getDocsStructure())
         : generateList(getDocsStructure(slug[0]), slug[0], 1)}

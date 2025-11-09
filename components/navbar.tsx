@@ -5,10 +5,16 @@ import { usePathname } from "next/navigation";
 import { NavigationMenu } from "radix-ui";
 import Image from "next/image";
 import { useState } from "react";
+import { Kdam_Thmor_Pro } from "next/font/google";
+
+const kdamFont = Kdam_Thmor_Pro({
+  weight: "400",
+  subsets: ["latin"]
+});
 
 export default function NavBar() {
   const path = usePathname();
-  const [ isMobileOpen, setMobileOpen ] = useState(false)
+  const [isMobileOpen, setMobileOpen] = useState(false)
 
   function SimpleItem({ href, label }: { href: string; label: string }) {
     return (
@@ -39,11 +45,11 @@ export default function NavBar() {
         >
           {label}
           <ChevronDownIcon
-            className={`transition-transform group-data-[state=isMobileOpen]:rotate-180 ${transition} static size-4 self-center p-[-25%]`}
+            className={`transition-transform group-data-[state=open]:rotate-180 ${transition} static size-4 self-center p-[-25%]`}
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[calc(100%+20px)] max-md:left-full md:left-[50%] translate-x-[-50%]">
+        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[100%] max-md:left-full md:left-[50%] translate-x-[-50%]">
           <ul className="flex flex-col items-center min-w-48 w-full">
             {items.map(({ href, label }, index) => {
               return (
@@ -73,32 +79,21 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none">
+    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none drop-shadow-md/75">
       <div className="max-md:container max-md:justify-between min-md:justify-around mx-auto flex h-full flex-row items-center gap-8">
         <Logo isOpen={isMobileOpen} />
 
         {/* Navigation List */}
         <NavigationMenu.List
           style={{ position: 'static' }}
-          className={`${
-            isMobileOpen ? 'flex' : 'hidden'
-          } max-md:absolute max-md:left-0 max-md:top-full max-md:w-full max-md:flex-col max-md:bg-nav max-md:gap-4 max-md:p-4
+          className={`${isMobileOpen ? 'flex' : 'hidden'
+            } max-md:absolute max-md:left-0 max-md:top-full max-md:w-full max-md:flex-col max-md:bg-nav max-md:gap-4 max-md:p-4
           md:static md:flex md:flex-row md:items-center md:gap-6 md:p-0 transition-[left]`
-        }>
+          }>
           <SimpleItem href="/" label="Home" />
           <Seperator />
 
           <SimpleItem href="/about" label="About Us" />
-          <Seperator />
-
-          <ComplexItem
-            label="Outreach"
-            hrefBase="/outreach"
-            items={[
-              { href: '/fll', label: 'FLL' },
-              { href: '/tree-planting', label: 'Tree Planting' },
-            ]}
-          />
           <Seperator />
 
           <ComplexItem
@@ -112,7 +107,6 @@ export default function NavBar() {
           <Seperator />
 
           <SimpleItem href="/sponsors" label="Sponsors" />
-          
         </NavigationMenu.List>
 
         {/* Hamburger Button (visible only on mobile) */}
@@ -121,7 +115,7 @@ export default function NavBar() {
           onClick={() => setMobileOpen(o => !o)}
           aria-label="Toggle navigation menu"
         >
-          { isMobileOpen ? <Cross1Icon className="size-6" /> : <HamburgerMenuIcon className="size-6" /> }
+          {isMobileOpen ? <Cross1Icon className="size-6" /> : <HamburgerMenuIcon className="size-6" />}
         </button>
       </div>
     </NavigationMenu.Root>
@@ -138,7 +132,7 @@ function Logo({ className, isOpen = false }: { className?: string, isOpen?: bool
         height={128}
         className={`size-10 my-1 ${className}`}
       />
-      <h2 className="max-lg:hidden text-3xl font-medium font-mono">Team 4308</h2>
+      <h2 className={`max-lg:hidden text-3xl font-medium ${kdamFont.className}`}>Team 4308</h2>
     </div>
   );
 }

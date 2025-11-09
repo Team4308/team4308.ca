@@ -4,6 +4,7 @@ import React from "react";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 export default function SponsorTiers() {
   const tiers = ["Bronze", "Silver", "Gold", "Platinum"];
+  const colours = ["text-[#A97142]", "text-[#B5B5B5]", "text-[#EFBF04]", "text-[#D9D9D9]"];
   const prices = ["$250+", "$1000+", "$2000+", "$3000+"];
 
   const benefits = [
@@ -29,18 +30,18 @@ export default function SponsorTiers() {
   ];
 
   return (
-    <div className="p-6 rounded-2xl overflow-x-auto w-[75%] mx-auto flex">
+    <div className="my-10 border-nav border-1 rounded-2xl overflow-x-auto w-[75%] mx-auto flex">
       <table className="w-full border-seperate border-spacing-0 text-center">
         <thead>
-          <tr className = "">
-            <th className = "bg-nav w-2/7 arounded-tl-2xl -m-5">
+          <tr className="">
+            <th className="bg-nav w-2/7 arounded-tl-2xl">
             </th>
             {tiers.map((tier, i) => (
               <th key={tier} className={`bg-nav text-white p-4 w-1/6
                ${i === tiers.length - 1 ? "arounded-tr-2xl" : ""}`}
               >
                 <div className="flex flex-col items-center">
-                  <span className="font-bold text-2xl uppercase">{tier}</span>
+                  <span className={`font-bold text-2xl uppercase ${colours[i]}`}>{tier}</span>
                   <span className="text-xl">{prices[i]}</span>
                 </div>
               </th>
@@ -50,11 +51,11 @@ export default function SponsorTiers() {
         <tbody>
           {benefits.map((benefit, rowIdx) => (
             <tr key={benefit} className="border-t border-nav divide-x">
-              <td className="text-xl text-left font-medium pt-1">{benefit}</td>
+              <td className="pl-5 py-4 text-2xl text-left font-medium">{benefit}</td>
               {benefitsByTier[rowIdx].map((has, colIdx) => (
                 <td key={colIdx} className="p-3 text-center">
                   {has && (
-                    <CheckCircledIcon className = "w-5 h-5 text-green-700 mx-auto"/>
+                    <CheckCircledIcon className="size-6 text-green-700 mx-auto" />
                   )}
                 </td>
               ))}

@@ -37,7 +37,7 @@ export default function Blog() {
 
   return (
     <>
-      <h1 className="text-nav mt-6 mb-8 text-center text-7xl font-medium">Blog</h1>
+      <h1 className="text-nav mt-12 mb-8 text-center text-7xl font-medium">Blog</h1>
       <ul className="mx-auto max-w-7xl grid grid-cols-2 gap-6 mb-10">{previews}</ul>
     </>
   );
