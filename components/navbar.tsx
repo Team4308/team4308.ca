@@ -96,6 +96,9 @@ export default function NavBar() {
           <SimpleItem href="/about" label="About Us" />
           <Seperator />
 
+          <SimpleItem href="/outreach" label="Outreach" />
+          <Seperator />
+
           <ComplexItem
             label="Resources"
             hrefBase="/resources"

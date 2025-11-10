@@ -244,7 +244,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto max-sm:mx-7 my-10">
+      <div className="max-w-7xl mx-auto max-sm:mx-7 my-10 pl-4">
         <h1 className="text-5xl mb-2 font-extrabold">Our Team and FIRST</h1>
         <p className="text-left text-2xl pl-1">Our Team is an amalgamation of students with distinct talents and abilities while being guided by our mentors from diverse fields and expertise, striving to build competitive robots in order to inspire and shape our youth.</p>
         <div className="mt-3">
