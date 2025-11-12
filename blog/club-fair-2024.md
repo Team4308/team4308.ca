@@ -13,35 +13,4 @@ It has been an awesome start of the season and we had such a fun time meeting yo
 
 P.S. Goosifer and his new friend had lots of fun as well!
 
-```tsx
-return (
-    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">
-        {children}
-    </code>
-);
-```
-
-note taht!
-
-this one doesn't work... not obviously...
-
-> [!note]
-> This is an example note
-
-> [!tip]
-> This is an example tip
-
-> [!warning]
-> This is an example warning
-
-> [!caution]
-> This is an example caution
-
-> [Nothing]
-> no "!", so "[Nothing]"
-
-> [!Nothing]
-> this one doesn't match
-
-
 ![carousel](club-fair-carousel "w-100 h-150")
