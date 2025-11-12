@@ -1,8 +1,14 @@
+/** Tips / Admonitions (syntax, but replaces <blockquote> tag)
+ *  @usage Inside markdown files (.md) write "> [!tip_type]"
+ *  @info Check the @type 'TLabel' for available tip types
+ *  If none matched, will return a fallback blockquote as if only started with ">"
+ * */
+
 import { Info, Lightbulb, AlertTriangle, AlertOctagon } from "lucide-react"
 import React from "react"
 
 type TLabel = "note" | "tip" | "warning" | "caution"
-const blockDefaults = "border-l-4 bg-zinc-100 p-4 rounded-md shadow"
+const containerDefaults = "border-l-4 bg-zinc-100 p-4 rounded-md shadow"
 
 const types = {
     note: { icon: Info, color: "border-blue-500 text-blue-400", label: "Note" },
@@ -14,7 +20,7 @@ const types = {
 const Admonition = ({ type, children }: { type: TLabel, children: React.ReactNode }) => {
     const { icon: Icon, color, label } = types[type]
     return (
-        <div className={`${blockDefaults} ${color} flex gap-3 items-start`}>
+        <div className={`${containerDefaults} ${color} flex gap-3 items-start`}>
             <Icon className="mt-1 shrink-0" size={18} />
             <div>
                 <p className={`font-semibold ${color.split(" ")[1]}`}>{label}</p>
@@ -46,7 +52,6 @@ export const Blockquote = ({ children }: { children: React.ReactNode }) => {
             if (typeof child === 'string')
                 return child.replace(/^(note|tip|warning|caution)\b[:\s-]*/i, '')
 
-            // #IloveTS
             if (React.isValidElement<{ children?: React.ReactNode }>(child)) {
                 const inner = React.Children.toArray(child.props.children).map(c =>
                     typeof c === 'string'
@@ -63,7 +68,7 @@ export const Blockquote = ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <blockquote className={`${blockDefaults} border-b-foreground/30 italic`}>
+        <blockquote className={`${containerDefaults} border-b-foreground/30 italic`}>
             {children}
         </blockquote>
     )
