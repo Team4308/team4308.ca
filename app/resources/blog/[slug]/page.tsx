@@ -1,4 +1,4 @@
-import CustomMarkdown from "@/components/custom-markdown";
+import CustomMarkdown from "@/components/custom-md/custom-markdown";
 import { getBlogAsMatter, getBlogs } from "@/utils/blog-cache";
 
 export async function generateStaticParams() {
