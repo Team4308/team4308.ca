@@ -2,9 +2,10 @@ import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import Image from "next/image";
 import Link from "next/link";
 import path from "path";
-import CustomCarousel from "./custom-carousel";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import CustomCarousel from "../custom-carousel";
+import { Code } from "./code"
+import { Blockquote } from './blockquote'
 
 function className(cls: string): MarkdownToJSX.Override {
   return { props: { className: cls } };
@@ -78,49 +79,6 @@ export default function CustomMarkdown({
     );
   }
 
-  /** Code snippet
-   *  @usage Inside markdown files (.md) write a <code> element
-   *  - with the content followed by the format:
-   *    ```[language_extension]
-   *        [your_code]
-   *    ```
-   * */
-  function code({
-    className,
-    children,
-  }: {
-    className?: string;
-    children: string;
-  }) {
-    const language = className?.replace("lang-", "").replace("language-", "");
-
-    // Fenced code block (```tsx ... ```):
-    if (language) {
-      return (
-        <SyntaxHighlighter
-          style={coldarkDark}
-          language={language}
-          showLineNumbers
-          customStyle={{
-            borderRadius: "0.75rem",
-            padding: "1rem",
-            fontSize: "0.875rem",
-            background: "var(--code-bg, #282c34)",
-          }}
-        >
-          { String(children).replace(/\n$/, "") }
-        </SyntaxHighlighter>
-      );
-    }
-
-    // Inline code (`inline`)
-    return (
-      <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">
-        {children}
-      </code>
-    );
-  }
-
   return (
     <Markdown
       className="flex flex-col gap-4"
@@ -140,7 +98,8 @@ export default function CustomMarkdown({
           img:   { component: img },
           video: { component: video },
           a:     { component: a, },
-          code:  { component: code }
+          code:  { component: Code },
+          blockquote: { component: Blockquote }
         },
       }}
     >
