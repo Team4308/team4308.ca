@@ -1,86 +1,51 @@
 "use client";
 
-const ANIM_MS = 600; // css ms
+import { useEffect, useState } from "react";
 
-import { useEffect, useRef, useState } from "react";
+const ANIM_MS = 800;
+const gradient = "bg-linear-to-b from-white to-gray-400 text-transparent bg-clip-text";
 
 function Box({
   num,
   label,
-  notAddS,
-  addLeadingZero,
+  noLeadingZero,
 }: {
   num: number;
   label: string;
-  notAddS?: boolean;
-  addLeadingZero?: boolean;
+  noLeadingZero?: boolean;
 }) {
-  const prev = useRef<string>(""); // last committed value I believe
-  const [animating, setAnimating] = useState<boolean[]>([]);
-  const [oldDigitsState, setOldDigitsState] = useState<string[]>([]);
-  const padded = (addLeadingZero && num < 10 ? "0" : "") + String(num);
-  const digits = padded.split("");
-  useEffect(() => {
-    if (prev.current === "") {
-      prev.current = padded;
-    }
-  }, []);
+  const digits = ((!noLeadingZero && num < 10 ? "0" : "") + num);
+  const [oldDigits, setOldDigits] = useState<string>(digits);
 
   useEffect(() => {
-    if (prev.current === padded) return;
-
-    const oldDigits = prev.current.split("");
-    const maxLen = Math.max(oldDigits.length, digits.length);
-    const oldNorm = Array.from({ length: maxLen }).map(
-      (_, i) => oldDigits[i] ?? ""
-    );
-    const newNorm = Array.from({ length: maxLen }).map(
-      (_, i) => digits[i] ?? ""
-    );
-
-    const changed = newNorm.map((d, i) => d !== oldNorm[i]);
-
-    if (!changed.some(Boolean)) {
-      prev.current = padded;
-      return;
-    }
-
-    // So that old digits can drop
-    setOldDigitsState(oldNorm);
-    setAnimating(changed);
-    const t = setTimeout(() => {
-      setAnimating([]);
-      setOldDigitsState([]);
-      prev.current = padded;
+    if (oldDigits === digits) return;
+    setTimeout(() => {
+      setOldDigits(digits)
     }, ANIM_MS);
-
-    return () => clearTimeout(t);
-  }, [padded]);
+  }, [digits])
 
   return (
     <div
-      className="bg-nav-dropdown flex w-50 flex-col overflow-hidden rounded-lg px-5 py-3 text-center transition-all duration-300 ease-out select-none"
-      style={{ boxShadow: "2px 2px 2px #76182cff" }}
+      className="bg-nav-dropdown flex w-50 flex-col overflow-hidden rounded-lg px-5 py-3"
     >
-      <h3 className="mb-1 text-xl font-medium">
+      <h3 className={`${gradient} text-xl font-medium`}>
         {label}
-        {!notAddS && num !== 1 ? "s" : ""}
+        {num !== 1 ? "s" : ""}
       </h3>
 
-      <div className="relative flex flex-row justify-center">
-        {digits.map((digit, i) => {
-          const isAnimating = animating[i] ?? false;
-          const oldDigit = oldDigitsState[i] ?? digit;
+      <div className="flex flex-row justify-center select-none">
+        {digits.split("").map((digit, i) => {
+          const oldDigit = oldDigits[i];
           return (
-            <div key={i} className="relative h-[44px] w-[22px] overflow-hidden">
-              <div className="time-gradient absolute inset-0 flex items-center justify-center text-4xl font-medium">
+            <div key={i} className="relative h-10 w-5.5 text-4xl font-medium">
+              <div className={`${gradient} absolute w-full`}>
                 {digit}
               </div>
-              {isAnimating && (
-                <div className="fall-digit time-gradient text-4xl font-medium">
+              <div className={`w-full bg-nav-dropdown ${digit !== oldDigit ? "fall-anim" : "hidden"}`}>
+                <div className={`${gradient} w-full`}>
                   {oldDigit}
                 </div>
-              )}
+              </div>
             </div>
           );
         })}
@@ -111,24 +76,18 @@ export default function EventCountdown() {
   const seconds = timeDiff % 60;
 
   return (
-    <div
-      className="bg-nav mt-12 py-8 text-white"
-      style={{ boxShadow: "2px 2px 5px rgba(117, 71, 71, 0.5)" }}
-    >
-      <h2 className="text-center text-xl">NEXT EVENT COUNTDOWN</h2>
-      <h1
-        className="text-center text-5xl font-medium"
-        style={{ textShadow: "3px 2px 5px rgba(60,60,60,0.5)" }}
-      >
+    <div className="bg-nav mt-12 py-8 text-center">
+      <h2 className={`${gradient} text-xl`}>NEXT EVENT COUNTDOWN</h2>
+      <h1 className={`${gradient} text-5xl font-medium`}>
         Ontario District – McMaster University
       </h1>
 
       {isClient && (
-        <div className="mt-10 flex flex-row justify-center gap-4">
-          <Box num={days} label="day" />
-          <Box num={hours} label="hour" addLeadingZero />
-          <Box num={minutes} label="minute" addLeadingZero />
-          <Box num={seconds} label="second" notAddS addLeadingZero />
+        <div className="mt-6 flex flex-row justify-center gap-4">
+          <Box num={days} label="day" noLeadingZero />
+          <Box num={hours} label="hour" />
+          <Box num={minutes} label="minute" />
+          <Box num={seconds} label="second" />
         </div>
       )}
     </div>
