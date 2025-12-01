@@ -18,7 +18,6 @@
   --code-bg: #282c34;
 }
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
