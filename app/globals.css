@@ -63,26 +63,39 @@
 }
 
 .AccordionContent[data-state="open"] {
-	animation: slideDown 300ms ease-out;
+  animation: slideDown 300ms ease-out;
 }
 .AccordionContent[data-state="closed"] {
-	animation: slideUp 300ms ease-out;
+  animation: slideUp 300ms ease-out;
 }
 
 @keyframes slideDown {
-	from {
-		height: 0;
-	}
-	to {
-		height: var(--radix-accordion-content-height);
-	}
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 
 @keyframes slideUp {
-	from {
-		height: var(--radix-accordion-content-height);
-	}
-	to {
-		height: 0;
-	}
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/*timer animation*/
+.fall-anim {
+  animation: digit-fall 0.8s ease-in forwards;
+}
+
+@keyframes digit-fall {
+  0% {
+  }
+  100% {
+    transform: translate(16px, 70px) rotate(-30deg);
+  }
 }
