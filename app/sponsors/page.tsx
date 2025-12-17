@@ -1,6 +1,6 @@
 import HeroBanner from "@/components/hero-banner";
-import SponsorImage from "@/components/sponsor-image";
-import Table from "@/components/sponsor-table"
+import SponsorImage from "@/components/sponsors/sponsor-image";
+import Table from "@/components/sponsors/sponsor-table"
 
 
 export default function Sponsors() {

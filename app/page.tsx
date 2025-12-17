@@ -1,5 +1,5 @@
-import SponsorImage from "@/components/sponsor-image";
-import CustomCarousel from "@/components/custom-carousel";
+import SponsorImage from "@/components/sponsors/sponsor-image";
+import CustomCarousel from "@/components/carousel/custom-carousel";
 import EventCountdown from "@/components/event-countdown";
 import HeroBanner from "@/components/hero-banner";
 

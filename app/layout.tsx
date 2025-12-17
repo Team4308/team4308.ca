@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import 'react-multi-carousel/lib/styles.css';
-import NavBar from "@/components/navbar";
-import Footer from "@/components/footer";
+import NavBar from "@/components/nav/navbar";
+import Footer from "@/components/nav/footer";
 
 const rubikFont = Rubik({
   subsets: ["latin"],
