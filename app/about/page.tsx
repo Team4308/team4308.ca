@@ -1,11 +1,11 @@
 'use client'
 
-import Image from "next/image";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 import * as Accordion from "@radix-ui/react-accordion";
 import { PlusIcon } from "@radix-ui/react-icons"
+import HeroBanner from "@/components/hero-banner";
 
 interface CompetitionResult {
   event: string;
@@ -228,22 +228,10 @@ export default function About() {
   }, []);
   return (
     <div>
-      <div className="mb-5">
-        <div className="w-full relative">
-          <Image
-            width={6000}
-            height={3000}
-            src={"/big-image.jpg"}
-            alt=""
-            className="w-screen h-[calc(100vh-16*var(--spacing))] object-cover brightness-67"
-          />
-        </div>
-        <div className="absolute top-0 w-full h-full flex flex-row">
-          <div className="my-auto w-full">
-            <h1 className="text-7xl font-medium text-background text-center">About Us</h1>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        src="big-image.jpg"
+        title="About us"
+      />
       <div className="max-w-7xl mx-auto max-sm:mx-7 my-10 pl-4">
         <h1 className="text-5xl mb-2 font-extrabold">Our Team and FIRST</h1>
         <p className="text-left text-2xl pl-1">Our Team is an amalgamation of students with distinct talents and abilities while being guided by our mentors from diverse fields and expertise, striving to build competitive robots in order to inspire and shape our youth.</p>

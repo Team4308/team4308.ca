@@ -1,4 +1,4 @@
-import Image from "next/image";
+import HeroBanner from "@/components/hero-banner";
 import SponsorImage from "@/components/sponsor-image";
 import Table from "@/components/sponsor-table"
 
@@ -6,23 +6,11 @@ import Table from "@/components/sponsor-table"
 export default function Sponsors() {
   return (
     <>
-      <div className="w-full relative">
-        <Image
-          width={6000}
-          height={4000}
-          src={"/big-image.jpg"}
-          alt=""
-          className="w-screen h-[calc(100vh-16*var(--spacing))] object-cover brightness-67"
-        />
+      <HeroBanner
+        src="big-image.jpg"
+        title="Sponsors"
+      />
 
-        <div className="absolute top-0 w-full h-full flex flex-row">
-          <div className="my-auto w-full">
-            <h1
-              className="text-7xl font-medium text-background text-center"
-            >Sponsors</h1>
-          </div>
-        </div>
-      </div>
       <div className="pt-4 pb-4">
         <h1 className="text-center text-5xl mt-10 font-medium">Sponsorship Tiers</h1>
         <Table />

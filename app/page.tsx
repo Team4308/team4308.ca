@@ -1,31 +1,16 @@
-import Image from "next/image";
 import SponsorImage from "@/components/sponsor-image";
 import CustomCarousel from "@/components/custom-carousel";
 import EventCountdown from "@/components/event-countdown";
+import HeroBanner from "@/components/hero-banner";
 
 export default function Home() {
   return (
     <>
-      <div className="w-full relative">
-        <Image
-          width={6000}
-          height={4000}
-          src={"/big-image.jpg"}
-          alt=""
-          className="w-screen h-[calc(100vh-20*var(--spacing))] object-cover brightness-67"
-        />
-
-        <div className="absolute top-0 w-full h-full flex flex-row">
-          <div className="my-auto w-full">
-            <h1
-              className="text-7xl font-medium text-background text-center"
-            >Team 4308 - Absolute Robotics</h1>
-            <h2
-              className="text-3xl text-background text-center"
-            >A First Robotics team from Mississauga, Ontario</h2>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        src="big-image.jpg"
+        title="Team 4308 - Absolute Robotics"
+        desc="A FIRST robotics team from Mississauga, Ontario"
+      />
 
       <CustomCarousel
         childClass="w-120 h-80"
