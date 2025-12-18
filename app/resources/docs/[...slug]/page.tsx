@@ -1,5 +1,5 @@
 import CustomMarkdown from "@/components/custom-md/custom-markdown";
-import DocsSidebar from "@/components/docs-sidebar";
+import DocsSidebar from "@/components/docs-sidebar/docs-sidebar";
 import {
   DocsStructure,
   getDocsStructure,
@@ -41,6 +41,7 @@ export default async function Docs({
           {doc.content}
         </CustomMarkdown>
       </div>
+      <div className="w-20" />
     </div>
   );
 }

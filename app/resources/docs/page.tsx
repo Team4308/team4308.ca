@@ -1,4 +1,4 @@
-import DocsSidebar from "@/components/docs-sidebar";
+import DocsSidebar from "@/components/docs-sidebar/docs-sidebar";
 
 export default function Docs() {
   return (

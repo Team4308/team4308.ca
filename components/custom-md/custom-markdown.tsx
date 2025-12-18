@@ -1,11 +1,12 @@
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import Image from "next/image";
-import Link from "next/link";
 import path from "path";
 
-import CustomCarousel from "../custom-carousel";
+import CustomCarousel from "../carousel/custom-carousel";
 import { Code } from "./code"
 import { Blockquote } from './blockquote'
+import { a, ol, ul } from "./text";
+import { table, td, th } from "./table";
 
 function className(cls: string): MarkdownToJSX.Override {
   return { props: { className: cls } };
@@ -51,26 +52,6 @@ export default function CustomMarkdown({
     );
   }
 
-  function a({
-    title,
-    href,
-    children,
-  }: {
-    title: string;
-    href: string;
-    children: string;
-  }) {
-    return (
-      <Link
-        href={href}
-        className="text-link hover:text-link-hover underline transition-colors duration-200 ease-in-out"
-        prefetch={title !== "external"}
-      >
-        {children}
-      </Link>
-    );
-  }
-
   function video({ src, className }: { src: string, className?: string }) {
     return (
       <video controls className={className}>
@@ -95,11 +76,16 @@ export default function CustomMarkdown({
           h1: className("text-5xl"),
           h2: className("text-4xl"),
           h3: className("text-3xl"),
-          img:   { component: img },
+          img: { component: img },
           video: { component: video },
-          a:     { component: a, },
-          code:  { component: Code },
-          blockquote: { component: Blockquote }
+          a: { component: a, },
+          ol: { component: ol },
+          ul: { component: ul },
+          code: { component: Code },
+          blockquote: { component: Blockquote },
+          table: { component: table },
+          th: { component: th },
+          td: { component: td },
         },
       }}
     >
