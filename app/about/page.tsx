@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { PlusIcon } from "@radix-ui/react-icons"
 import HeroBanner from "@/components/hero-banner";
+import Link from "next/link";
 
 interface CompetitionResult {
   event: string;
@@ -233,16 +234,24 @@ export default function About() {
         title="About us"
       />
       <div className="max-w-7xl mx-auto max-sm:mx-7 my-10 pl-4">
-        <h1 className="text-5xl mb-2 font-extrabold">Our Team and FIRST</h1>
-        <p className="text-left text-2xl pl-1">Our Team is an amalgamation of students with distinct talents and abilities while being guided by our mentors from diverse fields and expertise, striving to build competitive robots in order to inspire and shape our youth.</p>
+        <h1 className="text-5xl mb-2 font-extrabold">Our team and FIRST</h1>
+        <p className="text-left text-2xl pl-1">Our team is an amalgamation of students with distinct talents and abilities while being guided by our mentors from diverse fields and expertise, striving to build competitive robots in order to inspire and shape our youth.</p>
         <div className="mt-3">
-          <button className="mb-2 sm:mb-0 w-[10%+70] border-2 border-red-900 text-red-900 p-2 rounded-lg hover:bg-red-100 mr-2" onClick={() => window.open('https://www.firstinspires.org/programs/frc/', '_blank', 'noopener, noreferrer')}>Learn More about FIRST</button>
-          <button className="w-[10%+70] border-2 border-red-900 text-red-900 p-2 rounded-lg hover:bg-red-100" onClick={() => window.open('https://frc-events.firstinspires.org/team/4308', '_blank', 'noopener, noreferrer')}>Learn more about FIRST and Team 4308</button>
+          <Link
+            href={"https://www.firstinspires.org/programs/frc/"}
+            target="_blank"
+            className="border-2 border-nav text-nav p-2 rounded-lg hover:bg-gray-200 mr-2"
+          >Learn more about FIRST</Link>
+          <Link
+            href={"https://frc-events.firstinspires.org/team/4308"}
+            target="_blank"
+            className="border-2 border-nav text-nav p-2 rounded-lg hover:bg-gray-200"
+          >Learn more about team 4308</Link>
         </div>
       </div>
-      <div className="content-center pt-10 mt-5 mb-5 pb-15 bg-nav text-red-100" ref={containerRef}>
-        <h1 className="text-5xl text-center mt-5 mb-7.5">Our Team In Numbers</h1>
-        <div className="flex justify-evenly">
+      <div className="content-center pt-10 mt-5 mb-5 pb-15 bg-gray-200" ref={containerRef}>
+        <h1 className="text-5xl text-center mt-5 mb-7.5">Our team in numbers</h1>
+        <div className="flex justify-evenly bg-">
           <div className="flex flex-col items-center transition-all duration-500">
             <h1 className="text-6xl font-semibold">{members}+</h1>
             <p className="text-3xl">Members</p>
@@ -267,7 +276,7 @@ export default function About() {
               className="m-3"
             >
               <Accordion.Header>
-                <Accordion.Trigger className="w-full relative flex items-center text-left rounded-md hover:bg-gray-200 px-4 py-2 text-2xl font-semibold border-2 border-red-800 [&[data-state=open]>span>svg]:rotate-45">
+                <Accordion.Trigger className="w-full relative flex items-center text-left rounded-md hover:bg-gray-200 px-4 py-2 text-2xl font-semibold border-2 border-nav [&[data-state=open]>span>svg]:rotate-45">
                   <span className="pr-2">
                     <PlusIcon className="w-6 h-6 transition-transform duration-200" />
                   </span>

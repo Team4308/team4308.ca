@@ -19,6 +19,7 @@
 }
 
 @theme inline {
+  --color-gray-200: #e1e3e7;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-nav: var(--nav);

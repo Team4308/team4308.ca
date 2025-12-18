@@ -4,7 +4,12 @@ import React from "react";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 export default function SponsorTiers() {
   const tiers = ["Bronze", "Silver", "Gold", "Platinum"];
-  const colours = ["text-[#A97142]", "text-[#B5B5B5]", "text-[#EFBF04]", "text-[#D9D9D9]"];
+  const colours = [
+    "from-[#CE8946] to-[#905921]",
+    "from-[#BBBBBB] to-[#777777]",
+    "from-[#FFD700] to-[#917900]",
+    "from-[#EEEEEE] to-[#888888]"
+  ];
   const prices = ["$250+", "$1000+", "$2000+", "$3000+"];
 
   const benefits = [
@@ -30,18 +35,18 @@ export default function SponsorTiers() {
   ];
 
   return (
-    <div className="my-10 border-nav border-1 rounded-2xl overflow-x-auto w-[75%] mx-auto flex">
-      <table className="w-full border-seperate border-spacing-0 text-center">
+    <div className="my-10 border-nav border-2 rounded-2xl overflow-x-auto w-[75%] mx-auto flex">
+      <table className="w-full text-center">
         <thead>
           <tr className="">
             <th className="bg-nav w-2/7 arounded-tl-2xl">
             </th>
             {tiers.map((tier, i) => (
-              <th key={tier} className={`bg-nav text-white p-4 w-1/6
+              <th key={tier} className={`bg-nav text-background p-4 w-1/6
                ${i === tiers.length - 1 ? "arounded-tr-2xl" : ""}`}
               >
                 <div className="flex flex-col items-center">
-                  <span className={`font-bold text-2xl uppercase ${colours[i]}`}>{tier}</span>
+                  <span className={`font-bold text-2xl uppercase bg-gradient-to-r text-transparent bg-clip-text ${colours[i]}`}>{tier}</span>
                   <span className="text-xl">{prices[i]}</span>
                 </div>
               </th>
@@ -50,10 +55,10 @@ export default function SponsorTiers() {
         </thead>
         <tbody>
           {benefits.map((benefit, rowIdx) => (
-            <tr key={benefit} className="border-t border-nav divide-x">
-              <td className="pl-5 py-4 text-xl text-left font-medium">{benefit}</td>
+            <tr key={benefit} className="border-t-1 border-nav divide-x">
+              <td className="px-5 py-4 text-xl text-left font-medium border-nav">{benefit}</td>
               {benefitsByTier[rowIdx].map((has, colIdx) => (
-                <td key={colIdx} className="p-3 text-center">
+                <td key={colIdx} className="p-3 text-center border-nav">
                   {has && (
                     <CheckCircledIcon className="size-6 text-green-700 mx-auto" />
                   )}

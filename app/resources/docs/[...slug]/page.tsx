@@ -41,6 +41,7 @@ export default async function Docs({
           {doc.content}
         </CustomMarkdown>
       </div>
+      <div className="w-20" />
     </div>
   );
 }

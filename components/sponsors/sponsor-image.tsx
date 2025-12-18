@@ -19,7 +19,7 @@ export default function SponsorImage(props: Props) {
         width={props.width}
         height={props.height}
         src={imgSrc || '/'}
-        className={`w-60 h-40 ${props.object ? props.object : "object-contain"} inline-block`}
+        className={`w-80 h-40 ${props.object ? props.object : "object-contain"} inline-block`}
       />
     </Link>
   );

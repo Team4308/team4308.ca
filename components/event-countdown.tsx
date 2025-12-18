@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const ANIM_MS = 800;
-const gradient = "bg-linear-to-b from-white to-gray-400 text-transparent bg-clip-text";
+const gradient = "bg-linear-to-b from-foreground to-gray-600 text-transparent bg-clip-text";
 
 function Box({
   num,
@@ -26,7 +26,7 @@ function Box({
 
   return (
     <div
-      className="bg-nav-dropdown flex w-50 flex-col overflow-hidden rounded-lg px-5 py-3"
+      className="bg-gray-300 rounded-lg text-center flex flex-col px-5 py-3 w-50 justify-center overflow-hidden"
     >
       <h3 className={`${gradient} text-xl font-medium`}>
         {label}
@@ -41,7 +41,7 @@ function Box({
               <div className={`${gradient} absolute w-full`}>
                 {digit}
               </div>
-              <div className={`w-full bg-nav-dropdown ${digit !== oldDigit ? "fall-anim" : "hidden"}`}>
+              <div className={`w-full bg-gray-300 ${digit !== oldDigit ? "fall-anim" : "hidden"}`}>
                 <div className={`${gradient} w-full`}>
                   {oldDigit}
                 </div>
@@ -55,7 +55,7 @@ function Box({
 }
 
 export default function EventCountdown() {
-  const eventTime = new Date("08:00 March 21, 2026 EST");
+  const eventTime = new Date("Mar 21 2026 08:00:00 EST");
   const [isClient, setIsClient] = useState(false);
   const [timeDiff, setTimeDiff] = useState(
     Math.floor((+eventTime - +new Date()) / 1000)
@@ -64,7 +64,7 @@ export default function EventCountdown() {
   useEffect(() => {
     setIsClient(true);
     const interval = setInterval(() => {
-      setTimeDiff(Math.floor((+eventTime - +new Date()) / 1000));
+      setTimeDiff(Math.floor((eventTime.getTime() - new Date().getTime()) / 1000));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -76,7 +76,7 @@ export default function EventCountdown() {
   const seconds = timeDiff % 60;
 
   return (
-    <div className="bg-nav mt-12 py-8 text-center">
+    <div className="bg-gray-200 mt-12 py-8 text-center">
       <h2 className={`${gradient} text-xl`}>NEXT EVENT COUNTDOWN</h2>
       <h1 className={`${gradient} text-5xl font-medium`}>
         Ontario District – McMaster University
