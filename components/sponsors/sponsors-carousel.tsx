@@ -20,6 +20,7 @@ export default function SponsorsCarousel({ className }: { className?: string }) 
       transitionDuration={1500}
       infinite
       pauseOnHover={false}
+      draggable={false}
       className={className}
     >
       <SponsorImage src="rotary.png" width={1065} height={338} href="https://rotaryclubofmississauga.com/" />

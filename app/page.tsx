@@ -12,9 +12,11 @@ export default function Home() {
         desc="A FIRST robotics team from Mississauga, Ontario"
       />
 
+      <h2 className="text-center text-4xl font-medium mt-12">Some more photos of us and our bots</h2>
+
       <CustomCarousel
         childClass="w-120 h-80"
-        className="mt-12"
+        className="mt-2"
         src="/carousel-images"
         responsive={{
           all: {

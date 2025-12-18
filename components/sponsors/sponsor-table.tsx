@@ -5,10 +5,10 @@ import { CheckCircledIcon } from "@radix-ui/react-icons";
 export default function SponsorTiers() {
   const tiers = ["Bronze", "Silver", "Gold", "Platinum"];
   const colours = [
-    "from-[#CE8946] to-[#905921]",
-    "from-[#BBBBBB] to-[#777777]",
-    "from-[#FFD700] to-[#917900]",
-    "from-[#EEEEEE] to-[#888888]"
+    "from-[#FFD89F] to-[#CD8E32]",
+    "from-[#C0C0C0] to-[#909090]",
+    "from-[#F9F295] to-[#D2AC47]",
+    "from-[#D9D9D9] to-[#A3A3A3]"
   ];
   const prices = ["$250+", "$1000+", "$2000+", "$3000+"];
 

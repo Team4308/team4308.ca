@@ -19,7 +19,7 @@
 }
 
 @theme inline {
-  --color-gray-200: #e1e3e7;
+  --color-gray-200: #e0e2e6;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-nav: var(--nav);
@@ -52,10 +52,10 @@
 }
 
 .content[data-state="open"] {
-  animation: open ease-in-out 400ms;
+  animation: open ease-out 300ms;
 }
 .content[data-state="closed"] {
-  animation: close ease-in-out 400ms;
+  animation: close ease-out 300ms;
 }
 
 /*This has be in css because of mobile*/
