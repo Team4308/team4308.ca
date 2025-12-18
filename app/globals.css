@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-shift: 90deg;
+}
+@keyframes hue-animation {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.animate-hue {
+  animation: hue-animation linear 5s;
+  animation-iteration-count: infinite;
+}
