@@ -47,7 +47,7 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div>
+    <>
       <HeroBanner
         src="big-image.jpg"
         title="About us"
@@ -85,42 +85,37 @@ export default function About() {
           </div>
         </div>
       </div>
-      <h1 className="text-center text-6xl mt-10 font-medium">Achievements</h1>
-      <div className="my-10">
-        <Accordion.Root type="single" collapsible className="w-full sm:max-w-[100%] md:max-w-[80%] lg:max-w-[62.5%] mx-auto ">
-          {competitionData.map((yearData) => (
-            <Accordion.Item
-              key={yearData.year}
-              value={yearData.year}
-              className="m-3"
-            >
-              <Accordion.Header>
-                <Accordion.Trigger className="w-full relative flex items-center text-left rounded-md hover:bg-gray-200 px-4 py-2 text-2xl font-semibold border-2 border-nav [&[data-state=open]>span>svg]:rotate-45">
-                  <span className="pr-2">
-                    <PlusIcon className="w-6 h-6 transition-transform duration-200" />
-                  </span>
-                  {yearData.year}
-                </Accordion.Trigger>
-              </Accordion.Header>
 
-              <Accordion.Content className="overflow-hidden AccordionContent">
-                <ul className="list-outside list-disc text-gray-700">
-                  {yearData.results.map((result, id) => (
-                    <li key={id}>
-                      <ul className="pt-2 pl-2 list-disc list-inside text-xl">{result.event}</ul>
-                      <ul className="pl-8 list-disc list-inside">
-                        {result.subpoints?.map((subpointed, l) => (
-                          <li key={l}>{subpointed}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              </Accordion.Content>
-            </Accordion.Item>
-          ))}
-        </Accordion.Root>
-      </div>
-    </div>
+      <h1 className="text-center text-6xl mt-10 font-medium">Over the years</h1>
+      <Accordion.Root type="single" collapsible className="my-10 w-full max-w-[62.5%] mx-auto ">
+        {competitionData.map((yearData, index) => (
+          <Accordion.Item
+            key={yearData.year}
+            value={yearData.year}
+            className=""
+          >
+            <Accordion.Header>
+              <Accordion.Trigger className={`w-full relative flex items-center text-left bg-gray-200 border-x-1 border-t-1 border-gray-400 hover:bg-gray-300 px-3 py-2 text-2xl font-semibold [&[data-state=open]>svg]:rotate-45 ${index == 0 ? "rounded-t-md" : index == competitionData.length - 1 ? "rounded-b-md border-b-1" : ""}`}>
+                <PlusIcon className="mr-2 size-6 transition-transform duration-200" />
+                {yearData.year}
+              </Accordion.Trigger>
+            </Accordion.Header>
+
+            <Accordion.Content className="overflow-hidden AccordionContent border-x-1 border-t-1 border-gray-400 text-gray-700 bg-[#e7e9ee]">
+              {yearData.results.map((result, id) => (
+                <div key={id} className="px-3 my-2">
+                  <p className="pl-2 list-disc list-inside text-xl">{result.event}</p>
+                  <ul className="pl-8 list-disc list-inside">
+                    {result.subpoints?.map((subpoint, l) => (
+                      <li key={l}>{subpoint}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </Accordion.Content>
+          </Accordion.Item>
+        ))}
+      </Accordion.Root>
+    </>
   );
 }
