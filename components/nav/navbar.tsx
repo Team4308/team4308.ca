@@ -4,6 +4,7 @@ import { ChevronDownIcon, Cross1Icon, HamburgerMenuIcon, ArrowRightIcon } from "
 import { usePathname } from "next/navigation";
 import { NavigationMenu } from "radix-ui";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Kdam_Thmor_Pro } from "next/font/google";
 
@@ -128,6 +129,10 @@ export default function NavBar() {
 function Logo({ className, isOpen = false }: { className?: string, isOpen?: boolean }) {
   return (
     <div className={`${isOpen && 'hidden'} flex flex-row gap-6 items-center`}>
+     <Link 
+     href="/"
+     className="flex flex-row items-center gap-6"
+     >
       <Image
         src="/logo.png"
         alt="logo"
@@ -136,6 +141,7 @@ function Logo({ className, isOpen = false }: { className?: string, isOpen?: bool
         className={`size-10 my-1 ${className}`}
       />
       <h2 className={`max-lg:hidden text-3xl font-medium ${kdamFont.className}`}>Team 4308</h2>
+      </Link>
     </div>
   );
 }
