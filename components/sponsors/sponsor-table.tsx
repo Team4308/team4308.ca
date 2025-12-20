@@ -1,7 +1,8 @@
 'use client'
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+
 export default function SponsorTiers() {
   const tiers = ["Bronze", "Silver", "Gold", "Platinum"];
   const colours = [
@@ -24,50 +25,91 @@ export default function SponsorTiers() {
   ];
 
   const benefitsByTier = [
-    [true, true, true, true], // shirt & website
-    [true, true, true, true], // banner
-    [true, true, true, true], // social media
-    [false, true, true, true], // robot
-    [false, true, true, true], // competitions
-    [false, false, true, true], // live robot
-    [false, false, true, true], // updates
-    [false, false, false, true], // changing colors
+    [true, true, true, true],
+    [true, true, true, true],
+    [true, true, true, true],
+    [false, true, true, true],
+    [false, true, true, true],
+    [false, false, true, true],
+    [false, false, true, true],
+    [false, false, false, true],
   ];
 
+  const scroll = useRef<HTMLDivElement | null>(null);
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(1);
+
+  function Scroll() {
+    const a = scroll.current;
+    if (!a) return;
+
+    const maxSizeForShade = a.scrollWidth - a.clientWidth;
+    const progress = maxSizeForShade > 0 ? a.scrollLeft / maxSizeForShade : 0;
+
+    setLeft(Math.min(progress * 1.2, 1));
+    setRight(Math.min((1 - progress) * 1.2, 1));
+  }
+
   return (
-    <div className="my-10 border-nav border-2 rounded-2xl overflow-x-auto w-[75%] mx-auto flex">
-      <table className="w-full text-center">
-        <thead>
-          <tr className="">
-            <th className="bg-nav w-2/7 arounded-tl-2xl">
-            </th>
-            {tiers.map((tier, i) => (
-              <th key={tier} className={`bg-nav text-background p-4 w-1/6
-               ${i === tiers.length - 1 ? "arounded-tr-2xl" : ""}`}
-              >
-                <div className="flex flex-col items-center">
-                  <span className={`font-bold text-2xl uppercase bg-gradient-to-r text-transparent bg-clip-text ${colours[i]}`}>{tier}</span>
-                  <span className="text-xl">{prices[i]}</span>
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {benefits.map((benefit, rowIdx) => (
-            <tr key={benefit} className="border-t-1 border-nav divide-x">
-              <td className="px-5 py-4 text-xl text-left font-medium border-nav">{benefit}</td>
-              {benefitsByTier[rowIdx].map((has, colIdx) => (
-                <td key={colIdx} className="p-3 text-center border-nav">
-                  {has && (
-                    <CheckCircledIcon className="size-6 text-green-700 mx-auto" />
-                  )}
-                </td>
+    <div className="relative max-sm:w-full">
+      <div
+        ref={scroll}
+        onScroll={Scroll}
+        className="my-10 mx-auto max-sm:mx-0 border-nav border-2 max-sm:rounded-none rounded-2xl max-sm:w-full w-[75%] overflow-x-auto flex"
+      >
+        <table className="w-full text-center">
+          <thead>
+            <tr>
+              <th className="bg-nav w-2/7 arounded-tl-2xl"></th>
+              {tiers.map((tier, i) => (
+                <th
+                  key={tier}
+                  className={`bg-nav text-background p-4 w-1/6 ${
+                    i === tiers.length - 1 ? "arounded-tr-2xl" : ""
+                  }`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span
+                      className={`font-bold text-2x1 max-sm:text-lg uppercase bg-gradient-to-r text-transparent bg-clip-text ${colours[i]}`}
+                    >
+                      {tier}
+                    </span>
+                    <span className="max-sm:text-base text-xl">
+                      {prices[i]}
+                    </span>
+                  </div>
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {benefits.map((benefit, rowIdx) => (
+              <tr key={benefit} className="border-t-1 border-nav divide-x">
+                <td className="max-sm:px-3 max-sm:py-3 max-sm:text-sm px-5 py-4 text-xl text-left font-medium border-nav">
+                  {benefit}
+                </td>
+                {benefitsByTier[rowIdx].map((has, colIdx) => (
+                  <td key={colIdx} className="p-3 text-center border-nav">
+                    {has && (
+                      <CheckCircledIcon className="size-6 text-green-700 mx-auto" />
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{opacity: left}}
+        className="pointer-events-none absolute top-0 left-0 h-full w-15 hidden max-sm:block bg-gradient-to-r from-background to-transparent transition-opacity duration-300 ease-out"
+      />
+
+      <div
+        style={{opacity: right}}
+        className="pointer-events-none absolute top-0 right-0 h-full w-15 hidden max-sm:block bg-gradient-to-l from-background to-transparent transition-opacity duration-300 ease-out"
+      />
     </div>
   );
 }
