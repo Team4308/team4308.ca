@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import { PlusIcon } from "@radix-ui/react-icons"
+import { PlusIcon } from "@radix-ui/react-icons";
 import HeroBanner from "@/components/hero-banner";
 import Link from "next/link";
 import { competitionData } from "@/utils/compeition-data";
@@ -14,7 +14,11 @@ export default function About() {
   const [alumni, setAlumni] = useState(0);
   const [years, setYears] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const counter = (setter: (n: number) => void, max: number, duration: number) => {
+  const counter = (
+    setter: (n: number) => void,
+    max: number,
+    duration: number
+  ) => {
     let start = 0;
     const stepTime = 16;
     const totalSteps = duration / stepTime;
@@ -46,66 +50,112 @@ export default function About() {
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
+
   return (
     <>
-      <HeroBanner
-        src="big-image.jpg"
-        title="About us"
-      />
-      <div className="max-w-7xl mx-auto max-sm:mx-7 my-10 pl-4">
-        <h1 className="text-5xl mb-2 font-extrabold">Our team and FIRST</h1>
-        <p className="text-left text-2xl pl-1">Our team is an amalgamation of students with distinct talents and abilities while being guided by our mentors from diverse fields and expertise, striving to build competitive robots in order to inspire and shape our youth.</p>
-        <div className="mt-3">
+      <HeroBanner src="big-image.jpg" title="About us" />
+      <div className="mx-auto my-10 max-w-7xl px-4 max-sm:mx-6">
+        <h1 className="mb-2 text-4xl font-extrabold sm:text-5xl">
+          Our team and FIRST
+        </h1>
+        <p className="pl-1 text-left text-xl sm:text-2xl">
+          Our team is an amalgamation of students with distinct talents and
+          abilities while being guided by our mentors from diverse fields and
+          expertise, striving to build competitive robots in order to inspire
+          and shape our youth.
+        </p>
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-2">
           <Link
-            href={"https://www.firstinspires.org/programs/frc/"}
+            href="https://www.firstinspires.org/programs/frc/"
             target="_blank"
-            className="border-2 border-nav text-nav p-2 rounded-lg hover:bg-gray-200 mr-2"
-          >Learn more about FIRST</Link>
+            className="border-nav text-nav rounded-lg border-2 p-2 text-center hover:bg-gray-200 max-sm:w-full"
+          >
+            Learn more about FIRST
+          </Link>
+
           <Link
-            href={"https://frc-events.firstinspires.org/team/4308"}
+            href="https://frc-events.firstinspires.org/team/4308"
             target="_blank"
-            className="border-2 border-nav text-nav p-2 rounded-lg hover:bg-gray-200"
-          >Learn more about team 4308</Link>
+            className="border-nav text-nav rounded-lg border-2 p-2 text-center hover:bg-gray-200 max-sm:w-full"
+          >
+            Learn more about team 4308
+          </Link>
         </div>
       </div>
-      <div className="content-center pt-10 mt-5 mb-5 pb-15 bg-gray-200" ref={containerRef}>
-        <h1 className="text-5xl text-center mt-5 mb-7.5">Our team in numbers</h1>
-        <div className="flex justify-evenly bg-">
+      <div
+        ref={containerRef}
+        className="mt-5 mb-5 content-center bg-gray-200 pt-10 pb-12"
+      >
+        <h1 className="mt-5 mb-8 text-center text-4xl sm:text-5xl">
+          Our team in numbers
+        </h1>
+
+        {/*layout for mobile*/}
+        <div className="flex flex-col items-center gap-10 sm:hidden">
+          <div className="flex w-full justify-evenly">
+            <div className="flex flex-col items-center">
+              <h1 className="text-6xl font-semibold">{members}+</h1>
+              <p className="text-2xl">Members</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="text-6xl font-semibold">{alumni}+</h1>
+              <p className="text-2xl">Alumni</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center">
+            <h1 className="text-6xl font-semibold">{years}+</h1>
+            <p className="text-2xl">Years</p>
+          </div>
+        </div>
+
+        {/*layout for computer*/}
+        <div className="hidden justify-evenly sm:flex">
           <div className="flex flex-col items-center transition-all duration-500">
             <h1 className="text-6xl font-semibold">{members}+</h1>
             <p className="text-3xl">Members</p>
           </div>
+
           <div className="flex flex-col items-center">
             <h1 className="text-6xl font-semibold">{alumni}+</h1>
             <p className="text-3xl">Alumni</p>
           </div>
+
           <div className="flex flex-col items-center">
             <h1 className="text-6xl font-semibold">{years}+</h1>
             <p className="text-3xl">Years</p>
           </div>
         </div>
       </div>
+      <h1 className="mt-10 text-center text-5xl font-medium sm:text-6xl">
+        Over the years
+      </h1>
 
-      <h1 className="text-center text-6xl mt-10 font-medium">Over the years</h1>
-      <Accordion.Root type="single" collapsible className="my-10 w-full max-w-[62.5%] mx-auto ">
+      <Accordion.Root
+        type="single"
+        collapsible
+        className="mx-auto my-10 w-full max-w-[91.1314%] sm:max-w-[75%] md:max-w-[65%] lg:max-w-[58.5%]"
+      >
         {competitionData.map((yearData, index) => (
-          <Accordion.Item
-            key={yearData.year}
-            value={yearData.year}
-            className=""
-          >
+          <Accordion.Item key={yearData.year} value={yearData.year}>
             <Accordion.Header>
-              <Accordion.Trigger className={`w-full relative flex items-center text-left bg-gray-200 border-x-1 border-t-1 border-gray-400 hover:bg-gray-300 px-3 py-2 text-2xl font-semibold [&[data-state=open]>svg]:rotate-45 ${index == 0 ? "rounded-t-md" : index == competitionData.length - 1 ? "rounded-b-md border-b-1" : ""}`}>
+              <Accordion.Trigger
+                className={`relative flex w-full items-center border-x border-t border-gray-400 bg-gray-200 px-3 py-2 text-left text-xl font-semibold hover:bg-gray-300 sm:text-2xl [&[data-state=open]>svg]:rotate-45 ${
+                  index === 0
+                    ? "rounded-t-md"
+                    : index === competitionData.length - 1
+                      ? "rounded-b-md border-b"
+                      : ""
+                }`}
+              >
                 <PlusIcon className="mr-2 size-6 transition-transform duration-200" />
                 {yearData.year}
               </Accordion.Trigger>
             </Accordion.Header>
-
-            <Accordion.Content className="overflow-hidden AccordionContent border-x-1 border-t-1 border-gray-400 text-gray-700 bg-[#e7e9ee]">
+            <Accordion.Content className="AccordionContent overflow-hidden border-x border-t border-gray-400 bg-[#e7e9ee] text-gray-700">
               {yearData.results.map((result, id) => (
-                <div key={id} className="px-3 my-2">
-                  <p className="pl-2 list-disc list-inside text-xl">{result.event}</p>
-                  <ul className="pl-8 list-disc list-inside">
+                <div key={id} className="my-3 px-4">
+                  <p className="pl-2 text-lg sm:text-xl">{result.event}</p>
+                  <ul className="list-inside list-disc pl-8">
                     {result.subpoints?.map((subpoint, l) => (
                       <li key={l}>{subpoint}</li>
                     ))}
