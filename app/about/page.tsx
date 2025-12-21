@@ -54,17 +54,17 @@ export default function About() {
   return (
     <>
       <HeroBanner src="big-image.jpg" title="About us" />
-      <div className="mx-auto my-10 max-w-7xl px-4 max-sm:mx-6">
-        <h1 className="mb-2 text-4xl font-extrabold sm:text-5xl">
+      <div className="mx-auto my-10 px-10 max-w-6xl gap-6 flex flex-col">
+        <h1 className="text-4xl font-extrabold sm:text-5xl">
           Our team and FIRST
         </h1>
-        <p className="pl-1 text-left text-xl sm:text-2xl">
+        <p className="text-left text-xl sm:text-2xl">
           Our team is an amalgamation of students with distinct talents and
           abilities while being guided by our mentors from diverse fields and
           expertise, striving to build competitive robots in order to inspire
           and shape our youth.
         </p>
-        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-2">
           <Link
             href="https://www.firstinspires.org/programs/frc/"
             target="_blank"
@@ -130,42 +130,43 @@ export default function About() {
         Over the years
       </h1>
 
-      <Accordion.Root
-        type="single"
-        collapsible
-        className="mx-auto my-10 w-full max-w-[91.1314%] sm:max-w-[75%] md:max-w-[65%] lg:max-w-[58.5%]"
-      >
-        {competitionData.map((yearData, index) => (
-          <Accordion.Item key={yearData.year} value={yearData.year}>
-            <Accordion.Header>
-              <Accordion.Trigger
-                className={`relative flex w-full items-center border-x border-t border-gray-400 bg-gray-200 px-3 py-2 text-left text-xl font-semibold hover:bg-gray-300 sm:text-2xl [&[data-state=open]>svg]:rotate-45 ${
-                  index === 0
+      <div className="my-10 px-10 max-w-6xl mx-auto">
+        <Accordion.Root
+          type="single"
+          collapsible
+          className="w-full"
+        >
+          {competitionData.map((yearData, index) => (
+            <Accordion.Item key={yearData.year} value={yearData.year}>
+              <Accordion.Header>
+                <Accordion.Trigger
+                  className={`relative flex w-full items-center border-x border-t border-gray-400 bg-gray-200 px-3 py-2 text-left text-xl font-semibold hover:bg-gray-300 sm:text-2xl [&[data-state=open]>svg]:rotate-45 ${index === 0
                     ? "rounded-t-md"
                     : index === competitionData.length - 1
                       ? "rounded-b-md border-b"
                       : ""
-                }`}
-              >
-                <PlusIcon className="mr-2 size-6 transition-transform duration-200" />
-                {yearData.year}
-              </Accordion.Trigger>
-            </Accordion.Header>
-            <Accordion.Content className="AccordionContent overflow-hidden border-x border-t border-gray-400 bg-[#e7e9ee] text-gray-700">
-              {yearData.results.map((result, id) => (
-                <div key={id} className="my-3 px-4">
-                  <p className="pl-2 text-lg sm:text-xl">{result.event}</p>
-                  <ul className="list-inside list-disc pl-8">
-                    {result.subpoints?.map((subpoint, l) => (
-                      <li key={l}>{subpoint}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </Accordion.Content>
-          </Accordion.Item>
-        ))}
-      </Accordion.Root>
+                    }`}
+                >
+                  <PlusIcon className="mr-2 size-6 transition-transform duration-200" />
+                  {yearData.year}
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content className="AccordionContent overflow-hidden border-x border-t border-gray-400 bg-[#e7e9ee] text-gray-700">
+                {yearData.results.map((result, id) => (
+                  <div key={id} className="my-3 px-4">
+                    <p className="pl-2">{result.event}</p>
+                    <ul className="list-inside list-disc pl-8">
+                      {result.subpoints?.map((subpoint, l) => (
+                        <li key={l}>{subpoint}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </Accordion.Content>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
+      </div>
     </>
   );
 }
