@@ -56,7 +56,7 @@ function getSlides(src: string, className?: string) {
 
   const res = fs.readdirSync(path.join(process.cwd(), "public", src)).map((file) => {
     return (
-      <div className={`mx-auto ${className} p-2 relative`} key={file}>
+      <div className={`flex-1 ${className} p-2 relative`} key={file}>
         <div className={`size-full relative`} key={file}>
           <Image
             // `path.join` returns path with backslashes ('\'), while normal are required for the relative path to work
@@ -64,7 +64,7 @@ function getSlides(src: string, className?: string) {
             fill
             quality={100}
             alt=""
-            className={`object-cover rounded-lg drop-shadow-md/75`}
+            className={`object-cover rounded-lg shadow-md`}
           />
         </div>
       </div>

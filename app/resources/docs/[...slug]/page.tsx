@@ -35,13 +35,14 @@ export default async function Docs({
   return (
     <div className="flex w-full px-10 flex-row">
       <DocsSidebar slug={slug} />
-      <div className="ml-auto max-w-7xl flex-1 py-10">
+      <div className="w-10" />
+      <div className="mx-auto max-w-7xl flex-1 py-10">
         <p className="text-5xl font-medium mb-6">{doc.data.title}</p>
         <CustomMarkdown dir={`/docs/${slug.join("/")}`}>
           {doc.content}
         </CustomMarkdown>
       </div>
-      <div className="w-20" />
+      <div className="w-10" />
     </div>
   );
 }

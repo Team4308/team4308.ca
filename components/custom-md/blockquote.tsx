@@ -20,12 +20,12 @@ const types = {
 const Admonition = ({ type, children }: { type: TLabel, children: React.ReactNode }) => {
   const { icon: Icon, color, label } = types[type]
   return (
-    <div className={`${containerDefaults} ${color} flex gap-3 items-start`}>
-      <Icon className="mt-1 shrink-0" size={18} />
-      <div>
-        <p className={`font-semibold ${color.split(" ")[1]}`}>{label}</p>
-        <div className="text-base text-foreground">{children}</div>
+    <div className={`${containerDefaults} ${color} gap-4 items-start`}>
+      <div className="flex gap-1 items-center">
+        <Icon className="size-5" />
+        <p className={`font-medium text-xl ${color.split(" ")[1]}`}>{label}</p>
       </div>
+      <div className="text-base text-foreground">{children}</div>
     </div>
   )
 }

@@ -70,12 +70,12 @@ export default function CustomMarkdown({
               if (children && children[0].type == img) {
                 return <div>{children}</div>;
               }
-              return <p className="text-lg">{children}</p>;
+              return <p>{children}</p>;
             },
           },
-          h1: className("text-5xl"),
-          h2: className("text-4xl"),
-          h3: className("text-3xl"),
+          h1: className("text-4xl max-sm:text-3xl"),
+          h2: className("text-3xl max-sm:text-2xl"),
+          h3: className("text-2xl max-sm:text-xlc"),
           img: { component: img },
           video: { component: video },
           a: { component: a, },
