@@ -13,4 +13,4 @@ It has been an awesome start of the season and we had such a fun time meeting yo
 
 P.S. Goosifer and his new friend had lots of fun as well!
 
-![carousel](club-fair-carousel "w-100 h-150")
+![carousel](club-fair-carousel "mx-[25%] aspect-3/5")
