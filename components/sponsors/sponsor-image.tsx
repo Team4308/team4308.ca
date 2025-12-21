@@ -13,13 +13,13 @@ type Props = {
 export default function SponsorImage(props: Props) {
   const imgSrc = path.join("/sponsors", props.src).replace(/\\/g, '/');
   return (
-    <Link href={props.href} target="_blank">
+    <Link className="flex-1 aspect-3/2 mx-[20%]" href={props.href} target="_blank">
       <Image
         alt=""
         width={props.width}
         height={props.height}
         src={imgSrc || '/'}
-        className={`w-80 h-40 ${props.object ? props.object : "object-contain"} inline-block`}
+        className={`size-full ${props.object ? props.object : "object-contain"}`}
       />
     </Link>
   );

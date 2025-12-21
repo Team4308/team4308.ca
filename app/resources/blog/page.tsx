@@ -28,7 +28,7 @@ export default function Blog() {
             className={`aspect-3/2 w-full rounded-lg object-cover ${blog.data.thumbnailClass}`}
             placeholder="empty"
           />
-          <p className="mt-2 text-3xl">{blog.data.title}</p>
+          <p className="mt-2 max-sm:text-xl sm:text-2xl md:text-3xl">{blog.data.title}</p>
           <p className="text-date text-base">{blog.data.date}</p>
         </Link>
       </li>
@@ -36,9 +36,9 @@ export default function Blog() {
   });
 
   return (
-    <>
-      <h1 className="text-nav mt-12 mb-8 text-center text-7xl font-medium">Blog</h1>
-      <ul className="mx-auto max-w-7xl grid grid-cols-2 gap-6 mb-10">{previews}</ul>
-    </>
+    <div className="p-5">
+      <h1 className="text-nav mt-12 mb-8 text-center font-medium max-sm:text-5xl md:text-6xl">Blog</h1>
+      <ul className="mx-auto max-w-7xl grid grid-cols-2 max-sm:grid-cols-1 gap-6 mb-10">{previews}</ul>
+    </div>
   );
 }

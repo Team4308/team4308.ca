@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="bg-nav text-background mt-auto flex w-full flex-row py-6">
-      <div className="mx-auto flex items-center flex-row gap-10">
-        <ul className="flex flex-row gap-10">
+    <div className="bg-nav text-background mt-auto w-full py-6">
+      <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-10">
+        <ul className="flex flex-row items-center gap-10">
           <Link href="https://instagram.com/frc4308/" target="_blank">
             <InstagramLogoIcon className="size-10" />
           </Link>
@@ -31,10 +31,11 @@ export default function Footer() {
             <GitHubLogoIcon className="size-10" />
           </Link>
         </ul>
-        <div className="bg-background flex h-14 w-px" />
+        <div
+          className="bg-background max-sm:w-35 max-sm:h-px sm:w-px sm:h-14"/>
         <Link
           href="mailto:contact@4308.ca"
-          className="text-xl font-medium underline"
+          className="text-xl font-medium underline text-center"
           prefetch={false}
         >
           contact@4308.ca

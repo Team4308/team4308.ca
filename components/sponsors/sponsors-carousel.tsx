@@ -7,12 +7,16 @@ export default function SponsorsCarousel({ className }: { className?: string }) 
   return (
     <Carousel
       responsive={{
-        all: {
+        allOthers: {
           breakpoint: { max: 100000, min: 0 },
           items: 3
+        },
+        mobile: {
+          breakpoint: { max: 640, min: 0 },
+          items: 2
         }
       }}
-      itemClass="flex flex-col items-center"
+      itemClass="flex flex-col"
       arrows={false}
       autoPlay
       autoPlaySpeed={4000}

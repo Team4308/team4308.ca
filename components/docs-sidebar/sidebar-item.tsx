@@ -32,16 +32,21 @@ export default class SideBarItem extends React.Component<Props, State> {
 
   render(): ReactNode {
     const cls = "text-nowrap pl-1 w-full";
-    const clsBtn = `${this.props.onRoute || this.state.hovering ? "bg-nav-dropdown" : ""} hover:bg-sidebar-hover`
+    const clsBtn = this.props.onRoute || this.state.hovering ? "bg-nav-dropdown" : ""
     return (
       <>
-        <div className="flex flex-row gap-1" onMouseEnter={() => { this.setState({ hovering: true }) }} onMouseLeave={() => this.setState({ hovering: false })}>
-          <div className={`flex w-full ${clsBtn} rounded-l-lg ${!this.hasChildren ? "rounded-r-lg" : ""} p-1`}>
+        <div
+          className={`flex flex-row gap-1 ${!this.props.hasContent && !this.hasChildren ? "hidden" : ""}`}
+          onMouseEnter={() => { this.setState({ hovering: true }) }}
+          onMouseLeave={() => this.setState({ hovering: false })}
+        >
+          <div className={`flex w-full ${clsBtn} rounded-l-lg ${!this.hasChildren ? "rounded-r-lg" : ""} ${this.props.hasContent ? "hover:bg-sidebar-hover" : ""} p-1`}>
             {this.props.hasContent ?
               <Link
                 className={cls}
                 href={path.join("/resources/docs", this.props.hrefPath)}
               >
+
                 {this.props.title}
               </Link> :
               <p className={cls}>{this.props.title}</p>
@@ -50,7 +55,7 @@ export default class SideBarItem extends React.Component<Props, State> {
 
           {this.hasChildren &&
             <div
-              className={`w-12 flex ${clsBtn} rounded-r-lg`}
+              className={`w-12 flex ${clsBtn} hover:bg-sidebar-hover rounded-r-lg`}
               onClick={() => {
                 this.setState({ open: !this.state.open });
               }}
@@ -62,8 +67,8 @@ export default class SideBarItem extends React.Component<Props, State> {
           }
 
         </div>
-        {this.hasChildren && this.state.open && (
-          <ul className="flex flex-col pl-4 gap-1">{this.props.children}</ul>
+        {this.hasChildren && (
+          <ul className={`flex flex-col pl-4 gap-1 ${!this.state.open ? "hidden" : ""}`}>{this.props.children}</ul>
         )}
       </>
     );
