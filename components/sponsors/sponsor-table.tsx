@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
 export default function SponsorTiers() {
@@ -37,36 +37,47 @@ export default function SponsorTiers() {
 
   const scroll = useRef<HTMLDivElement | null>(null);
   const [left, setLeft] = useState(0);
-  const [right, setRight] = useState(1);
+  const [right, setRight] = useState(0);
 
   function Scroll() {
     const a = scroll.current;
     if (!a) return;
 
     const maxSizeForShade = a.scrollWidth - a.clientWidth;
+    if (maxSizeForShade == 0) {
+      setLeft(0)
+      setRight(0)
+      return;
+    }
     const progress = maxSizeForShade > 0 ? a.scrollLeft / maxSizeForShade : 0;
 
     setLeft(Math.min(progress * 1.2, 1));
     setRight(Math.min((1 - progress) * 1.2, 1));
   }
 
+  useEffect(() => {
+    Scroll()
+    const resizeObserver = new ResizeObserver(Scroll);
+    if (scroll.current) resizeObserver.observe(scroll.current)
+    return () => resizeObserver.disconnect();
+  }, [])
+
   return (
-    <div className="relative max-sm:w-full">
+    <div className="relative max-sm:w-full mx-auto max-w-7xl px-5">
       <div
         ref={scroll}
         onScroll={Scroll}
-        className="my-10 mx-auto max-sm:mx-0 border-nav border-2 max-sm:rounded-none rounded-2xl max-sm:w-full w-[75%] overflow-x-auto flex"
+        className="my-10 border-nav border-2 rounded-2xl overflow-x-scroll flex"
       >
         <table className="w-full text-center">
           <thead>
             <tr>
-              <th className="bg-nav w-2/7 arounded-tl-2xl"></th>
+              <th className="bg-nav arounded-tl-2xl min-w-55"></th>
               {tiers.map((tier, i) => (
                 <th
                   key={tier}
-                  className={`bg-nav text-background p-4 w-1/6 ${
-                    i === tiers.length - 1 ? "arounded-tr-2xl" : ""
-                  }`}
+                  className={`bg-nav text-background p-4 w-[15%] min-w-35 ${i === tiers.length - 1 ? "arounded-tr-2xl" : ""
+                    }`}
                 >
                   <div className="flex flex-col items-center">
                     <span
@@ -85,7 +96,7 @@ export default function SponsorTiers() {
           <tbody>
             {benefits.map((benefit, rowIdx) => (
               <tr key={benefit} className="border-t-1 border-nav divide-x">
-                <td className="max-sm:px-3 max-sm:py-3 max-sm:text-sm px-5 py-4 text-xl text-left font-medium border-nav">
+                <td className="max-sm:px-3 max-sm:py-3 max-sm:text-sm sm:text-base md:text-lg lg:text-xl px-5 py-4 text-left font-medium border-nav">
                   {benefit}
                 </td>
                 {benefitsByTier[rowIdx].map((has, colIdx) => (
@@ -102,13 +113,13 @@ export default function SponsorTiers() {
       </div>
 
       <div
-        style={{opacity: left}}
-        className="pointer-events-none absolute top-0 left-0 h-full w-15 hidden max-sm:block bg-gradient-to-r from-background to-transparent transition-opacity duration-300 ease-out"
+        style={{ opacity: left }}
+        className="pointer-events-none absolute top-0 left-1 h-full w-9 max-sm bg-gradient-to-r from-background to-transparent"
       />
 
       <div
-        style={{opacity: right}}
-        className="pointer-events-none absolute top-0 right-0 h-full w-15 hidden max-sm:block bg-gradient-to-l from-background to-transparent transition-opacity duration-300 ease-out"
+        style={{ opacity: right }}
+        className="pointer-events-none absolute top-0 right-1 h-full w-9 max-sm bg-gradient-to-l from-background to-transparent"
       />
     </div>
   );
