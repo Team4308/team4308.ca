@@ -16,7 +16,7 @@ export default function SponsorsCarousel({ className }: { className?: string }) 
           items: 2
         }
       }}
-      itemClass="flex flex-col"
+      itemClass="flex flex-row"
       arrows={false}
       autoPlay
       autoPlaySpeed={4000}
