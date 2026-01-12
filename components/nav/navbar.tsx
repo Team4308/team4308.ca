@@ -19,10 +19,10 @@ export default function NavBar() {
 
   function SimpleItem({ href, label }: { href: string; label: string }) {
     return (
-      <NavigationMenu.Item>
+      <NavigationMenu.Item className={triggerItem}>
         <NavigationMenu.Link
           href={href}
-          className={`${path === href ? "text-nav-current" : ""} ${trigger}`}
+          className={`${path === href ? "text-nav-current" : ""} ${trigger} flex flex-row`}
         >
           {label}
         </NavigationMenu.Link>
@@ -40,36 +40,32 @@ export default function NavBar() {
     items: { href: string; label: string }[];
   }) {
     return (
-      <NavigationMenu.Item className="relative top">
+      <NavigationMenu.Item className={`md:relative max-md:flex max-md:flex-col ${triggerItem}`}>
         <NavigationMenu.Trigger
           className={`group ${path.split("/").slice(1)[0] === hrefBase.slice(1) ? "text-nav-current" : ""} ${trigger} flex flex-row gap-2`}
         >
           {label}
           <ChevronDownIcon
-            className={`transition-transform group-data-[state=open]:rotate-180 ${transition} static size-4 self-center p-[-25%]`}
+            className={`transition-transform group-data-[state=open]:rotate-180 tduration-300 ease-in-out static md:size-4 max-md:size-5`}
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="z-20 content rounded bg-nav-dropdown overflow-hidden absolute md:top-[calc(100%+2*var(--spacing))] max-md:left-full md:left-[50%] translate-x-[-50%]">
+        <NavigationMenu.Content className="content md:rounded-md md:bg-nav-dropdown overflow-hidden max-md:static md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%]">
           <ul className="flex flex-col items-center min-w-48 w-full">
             {items.map(({ href, label }, index) => {
               return (
-                <li key={index} className="w-full group">
-                  {index > 0 &&
-                    <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background/38 mx-auto" />
+                <li key={index} className="w-full">
+                  {index > 0 ?
+                    <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background/38 mx-auto max-md:hidden" /> : <></>
                   }
-                  <div
+                  <NavigationMenu.Link
+                    href={hrefBase + href}
                     key={label}
-                    className="flex items-center justify-between gap-4 w-full px-4 py-2 text-nowrap text-left"
+                    className={`w-full ${path === hrefBase + href ? "text-nav-current" : ""} ${trigger} group flex items-center justify-between gap-4 px-4 py-2 text-nowrap`}
                   >
-                    <NavigationMenu.Link
-                      href={hrefBase + href}
-                      className={`grow shrink w-full ${path === hrefBase + href ? "text-nav-current" : ""} ${trigger}`}
-                    >
-                      {label}
-                    </NavigationMenu.Link>
-                    <ArrowRightIcon className="opacity-0 -translate-x-full inline-flex size-4 group-hover:translate-0 group-hover:opacity-100" />
-                  </div>
+                    {label}
+                    <ArrowRightIcon className="transition-[opacity] opacity-0 md:size-4 max-md:size-5 ml-auto group-hover:opacity-100" />
+                  </NavigationMenu.Link>
                 </li>
               );
             })}
@@ -80,67 +76,75 @@ export default function NavBar() {
   }
 
   return (
-    <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none drop-shadow-md/75">
-      <div className="max-md:container max-md:justify-between min-md:justify-around mx-auto flex h-full flex-row items-center gap-8">
-        <Logo isOpen={isMobileOpen} />
+    <>
+      <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none drop-shadow-md/75">
+        <div className={`z-60 fixed top-0 left-0 bg-black h-[100vh] w-[100vw] md:hidden transition-[opacity] ${isMobileOpen ? "opacity-30" : "opacity-0"} duration-500 pointer-events-none`} />
+        <div className="max-md:justify-between min-md:justify-around mx-auto flex h-full flex-row items-center gap-8">
+          <Logo isOpen={isMobileOpen} />
 
-        {/* Navigation List */}
-        <NavigationMenu.List
-          style={{ position: 'static' }}
-          className={`${isMobileOpen ? 'flex' : 'hidden'
-            } max-md:absolute max-md:left-0 max-md:top-full max-md:w-full max-md:flex-col max-md:bg-nav max-md:gap-4 max-md:p-4
-          md:static md:flex md:flex-row md:items-center md:gap-6 md:p-0 transition-[left]`
-          }>
-          <SimpleItem href="/" label="Home" />
-          <Seperator />
+          {/* Navigation List */}
+          <NavigationMenu.List
+            className={`${isMobileOpen ? 'left-[30vw]' : 'left-[100vw]'}
+              max-md:top-0 max-md:gap-5 max-md:flex max-md:fixed max-md:h-[100vh] max-md:w-[70vw] max-md:flex-col max-md:bg-nav max-md:duration-500 max-md:transition-[left] max-md:pt-20 max-md:px-10 max-md:text-2xl max-sm:text-xl
+              md:static md:flex md:flex-row md:items-center md:gap-6 md:p-0 z-70`
+            }>
+            <SimpleItem href="/" label="Home" />
+            <Seperator />
 
-          <SimpleItem href="/about" label="About Us" />
-          <Seperator />
+            <SimpleItem href="/about" label="About Us" />
+            <Seperator />
 
-          <SimpleItem href="/outreach" label="Outreach" />
-          <Seperator />
+            <SimpleItem href="/outreach" label="Outreach" />
+            <Seperator />
 
-          <ComplexItem
-            label="Resources"
-            hrefBase="/resources"
-            items={[
-              { href: '/docs', label: 'Documentation' },
-              { href: '/blog', label: 'Blog' },
-            ]}
-          />
-          <Seperator />
+            <ComplexItem
+              label="Resources"
+              hrefBase="/resources"
+              items={[
+                { href: '/docs', label: 'Documentation' },
+                { href: '/blog', label: 'Blog' },
+              ]}
+            />
+            <Seperator />
 
-          <SimpleItem href="/sponsors" label="Sponsors" />
-        </NavigationMenu.List>
+            <SimpleItem href="/sponsors" label="Sponsors" />
 
-        {/* Hamburger Button (visible only on mobile) */}
-        <button
-          className="mb-auto min-md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-          onClick={() => setMobileOpen(o => !o)}
-          aria-label="Toggle navigation menu"
-        >
-          {isMobileOpen ? <Cross1Icon className="size-6" /> : <HamburgerMenuIcon className="size-6" />}
-        </button>
-      </div>
-    </NavigationMenu.Root>
+            <button
+              className="py-2 md:hidden absolute top-4 right-6.5"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Cross1Icon className="size-8" />
+            </button>
+          </NavigationMenu.List>
+
+          {/* Hamburger Button (visible only on mobile) */}
+          <button
+            className="py-2 min-md:hidden"
+            onClick={() => setMobileOpen(true)}
+          >
+            <HamburgerMenuIcon className="size-8" />
+          </button>
+        </div>
+      </NavigationMenu.Root>
+    </>
   )
 }
 
-function Logo({ className, isOpen = false }: { className?: string, isOpen?: boolean }) {
+function Logo({ className }: { className?: string, isOpen?: boolean }) {
   return (
-    <div className={`${isOpen && 'hidden'} flex flex-row gap-6 items-center`}>
-     <Link 
-     href="/"
-     className="flex flex-row items-center gap-6"
-     >
-      <Image
-        src="/logo.png"
-        alt="logo"
-        width={128}
-        height={128}
-        className={`size-10 my-1 ${className}`}
-      />
-      <h2 className={`max-lg:hidden text-3xl font-medium ${kdamFont.className}`}>Team 4308</h2>
+    <div className={`flex flex-row gap-6 items-center`}>
+      <Link
+        href="/"
+        className="flex flex-row items-center gap-6"
+      >
+        <Image
+          src="/logo.png"
+          alt="logo"
+          width={128}
+          height={128}
+          className={`size-10 my-1 ${className}`}
+        />
+        <h2 className={`max-lg:hidden text-3xl font-medium ${kdamFont.className}`}>Team 4308</h2>
       </Link>
     </div>
   );
@@ -150,5 +154,5 @@ function Seperator() {
   return <div className="max-md:hidden bg-background/38 h-4 w-px" />;
 }
 
-const transition = "ease-in-out duration-100";
-const trigger = `py-1 trigger transition-colors ease-in-out duration-100`;
+const triggerItem = "md:h-12"
+const trigger = "trigger transition-colors ease-in-out duration-300 md:h-12 items-center max-md:w-full";
