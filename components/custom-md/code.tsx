@@ -1,4 +1,3 @@
-import { ClipboardIcon } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "./copy-button";
