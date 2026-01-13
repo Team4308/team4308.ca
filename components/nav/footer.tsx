@@ -32,7 +32,7 @@ export default function Footer() {
           </Link>
         </ul>
         <div
-          className="bg-background max-sm:w-35 max-sm:h-px sm:w-px sm:h-14"/>
+          className="bg-background max-sm:w-35 max-sm:h-px sm:w-px sm:h-14" />
         <Link
           href="mailto:contact@4308.ca"
           className="text-xl font-medium underline text-center"

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { fontSize } from "@/utils/textStyles";
 
 export default function SponsorTiers() {
   const tiers = ["Bronze", "Silver", "Gold", "Platinum"];
@@ -81,11 +82,11 @@ export default function SponsorTiers() {
                 >
                   <div className="flex flex-col items-center">
                     <span
-                      className={`font-bold text-2x1 max-sm:text-lg uppercase bg-gradient-to-r text-transparent bg-clip-text ${colours[i]}`}
+                      className={`font-bold ${fontSize.lg3} uppercase bg-gradient-to-r text-transparent bg-clip-text ${colours[i]}`}
                     >
                       {tier}
                     </span>
-                    <span className="max-sm:text-base text-xl">
+                    <span className={fontSize.md3}>
                       {prices[i]}
                     </span>
                   </div>
@@ -96,7 +97,7 @@ export default function SponsorTiers() {
           <tbody>
             {benefits.map((benefit, rowIdx) => (
               <tr key={benefit} className="border-t-1 border-nav divide-x">
-                <td className="max-sm:px-3 max-sm:py-3 max-sm:text-sm sm:text-base md:text-lg lg:text-xl px-5 py-4 text-left font-medium border-nav">
+                <td className={`max-sm:px-3 max-sm:py-3 ${fontSize.sm4} px-5 py-4 text-left font-medium border-nav`}>
                   {benefit}
                 </td>
                 {benefitsByTier[rowIdx].map((has, colIdx) => (

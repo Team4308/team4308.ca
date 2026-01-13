@@ -1,4 +1,5 @@
 import { getBlogAsMatter, getBlogs } from "@/utils/blog-cache";
+import { fontSize } from "@/utils/textStyles";
 import Image from "next/image";
 import Link from "next/link";
 import path from "path";
@@ -28,8 +29,8 @@ export default function Blog() {
             className={`aspect-3/2 w-full rounded-lg object-cover ${blog.data.thumbnailClass}`}
             placeholder="empty"
           />
-          <p className="mt-2 max-sm:text-xl sm:text-2xl md:text-3xl">{blog.data.title}</p>
-          <p className="text-date text-base">{blog.data.date}</p>
+          <p className={`mt-2 ${fontSize.xl3}`}>{blog.data.title}</p>
+          <p className={`text-date ${fontSize.lg3}`}>{blog.data.date}</p>
         </Link>
       </li>
     );
@@ -37,7 +38,7 @@ export default function Blog() {
 
   return (
     <div className="p-5">
-      <h1 className="text-nav mt-12 mb-8 text-center font-medium max-sm:text-5xl md:text-6xl">Blog</h1>
+      <h1 className={`text-nav mt-12 mb-8 text-center font-medium ${fontSize.x5l3}`}>Blog</h1>
       <ul className="mx-auto max-w-7xl grid grid-cols-2 max-sm:grid-cols-1 gap-6 mb-10">{previews}</ul>
     </div>
   );

@@ -7,13 +7,14 @@ type Props = {
   width: number,
   height: number,
   href: string,
-  object?: "object-contain" | "object-cover"
+  object?: "object-contain" | "object-cover",
+  fill?: string,
 };
 
 export default function SponsorImage(props: Props) {
   const imgSrc = path.join("/sponsors", props.src).replace(/\\/g, '/');
   return (
-    <Link className="flex-1 aspect-3/2 max-sm:mx-[8%] sm:mx-[12%] md:mx-[16%] lg:mx-[20%]" href={props.href} target="_blank">
+    <Link className="flex-1 aspect-3/2 max-sm:mx-[14%] max-md:mx-[16%] max-lg:mx-[18%] lg:mx-[20%]" href={props.href} target="_blank">
       <Image
         alt=""
         width={props.width}

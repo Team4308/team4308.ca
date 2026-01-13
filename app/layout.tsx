@@ -4,6 +4,7 @@ import "./globals.css";
 import 'react-multi-carousel/lib/styles.css';
 import NavBar from "@/components/nav/navbar";
 import Footer from "@/components/nav/footer";
+import { fontSize } from "@/utils/textStyles";
 
 const rubikFont = Rubik({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({
         className={`${rubikFont.className} bg-background text-text flex flex-col antialiased`}
       >
         <NavBar />
-        <div className="text-foreground mx-auto w-full pt-20 min-h-screen text-lg max-sm:text-base">
+        <div className={`text-foreground mx-auto w-full pt-20 min-h-screen ${fontSize.md3}`}>
           {children}
         </div>
         <Footer />

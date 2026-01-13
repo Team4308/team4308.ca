@@ -8,6 +8,16 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import HeroBanner from "@/components/hero-banner";
 import Link from "next/link";
 import { competitionData } from "@/utils/compeition-data";
+import { fontSize } from "@/utils/textStyles";
+
+function Thing(props: { val: number, label: string }) {
+  return (
+    <div className="items-center">
+      <h1 className={`${fontSize.x4l3} font-semibold`}>{props.val}+</h1>
+      <p className={fontSize.xl3}>{props.label}</p>
+    </div>
+  );
+}
 
 export default function About() {
   const [members, setMembers] = useState(0);
@@ -54,21 +64,21 @@ export default function About() {
   return (
     <>
       <HeroBanner src="big-image.jpg" title="About us" />
-      <div className="mx-auto my-10 px-10 max-w-6xl gap-6 flex flex-col">
-        <h1 className="text-4xl font-extrabold sm:text-5xl">
+      <div className="mx-auto my-10 px-10 max-w-6xl gap-4 flex flex-col">
+        <h1 className={`${fontSize.x3l3} font-medium`}>
           Our team and FIRST
         </h1>
-        <p className="text-left text-xl sm:text-2xl">
+        <p className={fontSize.lg3}>
           Our team is an amalgamation of students with distinct talents and
           abilities while being guided by our mentors from diverse fields and
           expertise, striving to build competitive robots in order to inspire
           and shape our youth.
         </p>
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-2">
+        <div className={`flex flex-col gap-3 sm:flex-row sm:gap-2 text-center ${fontSize.lg3}`}>
           <Link
             href="https://www.firstinspires.org/programs/frc/"
             target="_blank"
-            className="border-nav text-nav rounded-lg border-2 p-2 text-center hover:bg-gray-200 max-sm:w-full"
+            className="border-nav text-nav rounded-lg border-2 p-2 hover:bg-gray-200 max-sm:w-full"
           >
             Learn more about FIRST
           </Link>
@@ -76,7 +86,7 @@ export default function About() {
           <Link
             href="https://frc-events.firstinspires.org/team/4308"
             target="_blank"
-            className="border-nav text-nav rounded-lg border-2 p-2 text-center hover:bg-gray-200 max-sm:w-full"
+            className="border-nav text-nav rounded-lg border-2 p-2 hover:bg-gray-200 max-sm:w-full"
           >
             Learn more about team 4308
           </Link>
@@ -84,53 +94,23 @@ export default function About() {
       </div>
       <div
         ref={containerRef}
-        className="mt-5 mb-5 content-center bg-gray-200 pt-10 pb-12"
+        className="mt-5 mb-5 content-center bg-gray-200 py-10 text-center"
       >
-        <h1 className="mt-5 mb-8 text-center text-4xl sm:text-5xl">
+        <h1 className={`mb-4 ${fontSize.x3l3}`}>
           Our team in numbers
         </h1>
 
-        {/*layout for mobile*/}
-        <div className="flex flex-col items-center gap-10 sm:hidden">
-          <div className="flex w-full justify-evenly">
-            <div className="flex flex-col items-center">
-              <h1 className="text-6xl font-semibold">{members}+</h1>
-              <p className="text-2xl">Members</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <h1 className="text-6xl font-semibold">{alumni}+</h1>
-              <p className="text-2xl">Alumni</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <h1 className="text-6xl font-semibold">{years}+</h1>
-            <p className="text-2xl">Years</p>
-          </div>
-        </div>
-
-        {/*layout for computer*/}
-        <div className="hidden justify-evenly sm:flex">
-          <div className="flex flex-col items-center transition-all duration-500">
-            <h1 className="text-6xl font-semibold">{members}+</h1>
-            <p className="text-3xl">Members</p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <h1 className="text-6xl font-semibold">{alumni}+</h1>
-            <p className="text-3xl">Alumni</p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <h1 className="text-6xl font-semibold">{years}+</h1>
-            <p className="text-3xl">Years</p>
-          </div>
+        <div className="flex justify-evenly mx-5">
+          <Thing val={members} label="Members" />
+          <Thing val={alumni} label="Alumni" />
+          <Thing val={years} label="Years" />
         </div>
       </div>
-      <h1 className="mt-10 text-center text-5xl font-medium sm:text-6xl">
+
+      <h1 className={`mt-10 text-center font-medium ${fontSize.x3l3}`}>
         Over the years
       </h1>
-
-      <div className="my-10 px-10 max-w-6xl mx-auto">
+      <div className="my-10 px-5 max-w-6xl mx-auto">
         <Accordion.Root
           type="single"
           collapsible
@@ -140,7 +120,7 @@ export default function About() {
             <Accordion.Item key={yearData.year} value={yearData.year}>
               <Accordion.Header>
                 <Accordion.Trigger
-                  className={`relative flex w-full items-center border-x border-t border-gray-400 bg-gray-200 px-3 py-2 text-left text-xl font-semibold hover:bg-gray-300 sm:text-2xl [&[data-state=open]>svg]:rotate-45 ${index === 0
+                  className={`${fontSize.lg3} relative flex w-full items-center border-x border-t border-gray-400 bg-gray-200 px-3 py-2 font-medium hover:bg-gray-300 [&[data-state=open]>svg]:rotate-45 ${index === 0
                     ? "rounded-t-md"
                     : index === competitionData.length - 1
                       ? "rounded-b-md border-b"
@@ -153,7 +133,7 @@ export default function About() {
               </Accordion.Header>
               <Accordion.Content className="AccordionContent overflow-hidden border-x border-t border-gray-400 bg-[#e7e9ee] text-gray-700">
                 {yearData.results.map((result, id) => (
-                  <div key={id} className="my-3 px-4">
+                  <div key={id} className={`my-3 px-4 ${fontSize.md3}`}>
                     <p className="pl-2">{result.event}</p>
                     <ul className="list-inside list-disc pl-8">
                       {result.subpoints?.map((subpoint, l) => (

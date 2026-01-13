@@ -77,15 +77,15 @@ export default function NavBar() {
 
   return (
     <>
-      <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-6 py-4 text-lg select-none transition-none drop-shadow-md/75">
+      <NavigationMenu.Root className="bg-nav text-background fixed top-0 z-50 w-full px-4 max-lg:py-2 lg:py-4 max-lg:text-lg lg:text-xl select-none transition-none drop-shadow-md/75">
         <div className={`z-60 fixed top-0 left-0 bg-black h-[100vh] w-[100vw] md:hidden transition-[opacity] ${isMobileOpen ? "opacity-30" : "opacity-0"} duration-500 pointer-events-none`} />
         <div className="max-md:justify-between min-md:justify-around mx-auto flex h-full flex-row items-center gap-8">
           <Logo isOpen={isMobileOpen} />
 
           {/* Navigation List */}
           <NavigationMenu.List
-            className={`${isMobileOpen ? 'left-[30vw]' : 'left-[100vw]'}
-              max-md:top-0 max-md:gap-5 max-md:flex max-md:fixed max-md:h-[100vh] max-md:w-[70vw] max-md:flex-col max-md:bg-nav max-md:duration-500 max-md:transition-[left] max-md:pt-20 max-md:px-10 max-md:text-2xl max-sm:text-xl
+            className={`${isMobileOpen ? 'translate-x-[-100%]' : 'translate-x-0'}
+              max-md:top-0 max-md:left-[100vw] max-md:gap-5 max-md:flex max-md:fixed max-md:h-[100vh] max-md:w-[70vw] max-md:flex-col max-md:bg-nav max-md:duration-500 max-md:transition-transform max-md:pt-20 max-md:px-10 max-md:text-2xl max-sm:text-xl
               md:static md:flex md:flex-row md:items-center md:gap-6 md:p-0 z-70`
             }>
             <SimpleItem href="/" label="Home" />
@@ -110,7 +110,7 @@ export default function NavBar() {
             <SimpleItem href="/sponsors" label="Sponsors" />
 
             <button
-              className="py-2 md:hidden absolute top-4 right-6.5"
+              className="py-2 md:hidden absolute top-2.5 right-4.5"
               onClick={() => setMobileOpen(false)}
             >
               <Cross1Icon className="size-8" />

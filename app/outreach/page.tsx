@@ -1,35 +1,18 @@
 'use client'
 
 import HeroBanner from "@/components/hero-banner";
+import { fontSize } from "@/utils/textStyles";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { useState, useEffect, useRef } from "react";
 
-function Featured({ href, title, imgSrc }: { href: string, title: string, imgSrc: string }) {
-  return (
-    <div className="flex flex-col">
-      <p className="text-2xl text-center">{title}</p>
-      <a href={href}>
-        <div className="relative w-[200] h-[200px] overflow-hidden rounded-lg">
-          <Image
-            src={imgSrc}
-            alt=""
-            fill
-            className="object-cover"
-          ></Image>
-        </div>
-      </a>
-    </div>
-  );
-}
-
 function Thing({ title, imgSrc, imgPos, children }: { imgSrc: string, imgPos: "left" | "right", title: string, children: ReactNode }) {
   return (
-    <div className="w-full flex justify-center mt-16">
-      <div className={`flex items-start gap-4 pb-4 w-4xl ${imgPos == "right" ? "flex-row-reverse" : ""}`}>
-        <div>
-          <div className="relative w-100 h-125 overflow-hidden rounded-lg">
+    <div className="w-full flex justify-center">
+      <div className={`flex items-start max-sm:gap-4 max-md:gap-6 md:gap-8 max-w-4xl px-5 ${imgPos == "right" ? "flex-row-reverse" : ""}`}>
+        <div className="my-auto max-sm:hidden">
+          <div className="relative sm:w-[40vw] lg:w-100 aspect-4/5 overflow-hidden rounded-lg">
             <Image
               src={imgSrc}
               alt=""
@@ -38,11 +21,20 @@ function Thing({ title, imgSrc, imgPos, children }: { imgSrc: string, imgPos: "l
             ></Image>
           </div>
         </div>
-        <div className="text-lg flex flex-col items-start justify-start pt-2 my-auto gap-5">
-          <h1 className="text-5xl">{title}</h1>
+        <div className={`flex flex-col items-start justify-start pt-2 my-auto gap-5 ${fontSize.md3}`}>
+          <h1 className={fontSize.x3l3}>{title}</h1>
           {children}
         </div>
       </div>
+    </div>
+  );
+}
+
+function Thing2(props: { val: number, label: string }) {
+  return (
+    <div className="items-center">
+      <h1 className={`${fontSize.x4l3} font-semibold`}>{props.val}+</h1>
+      <p className={fontSize.xl3}>{props.label}</p>
     </div>
   );
 }
@@ -91,6 +83,8 @@ export default function Outreach() {
         title="Outreach"
       />
 
+      <div className="h-10" />
+
       <Thing imgPos="right" title="4308 tree planting" imgSrc="/res/blog/tree-planting/tree-planting-carousel/tree-planting (2).jpg">
         <p>
           In May of 2025, team 4308 collaborated with the
@@ -106,17 +100,18 @@ export default function Outreach() {
           carbon dioxide every single day!
         </p>
       </Thing>
-      <div className="content-center mt-20 pt-10 mb-5 pb-15 bg-gray-200" ref={containerRef}>
-        <h1 className="text-6xl text-center mt-5 mb-7.5 font-bold">4308 Outreach Has</h1>
-        <div className="text-5xl leading-none grid grid-cols-2 gap-x-30 text-center">
-          <div className="font-semibold flex flex-col items-end space-y-3">
-            <h1>Planted</h1>
-            <h1>Carbon offset</h1>
-          </div>
-          <div className="flex flex-col items-start space-y-3">
-            <p>{trees}+ Trees</p>
-            <p>{carbon}+ Kgs</p>
-          </div>
+
+      <div
+        ref={containerRef}
+        className="my-10 content-center bg-gray-200 py-10 text-center"
+      >
+        <h1 className={`mb-4 ${fontSize.x3l3}`}>
+          4308 outreach has
+        </h1>
+
+        <div className="flex justify-evenly">
+          <Thing2 val={trees} label="Trees planted" />
+          <Thing2 val={carbon} label="kgs carbon offset" />
         </div>
       </div>
       <Thing imgPos="left" title="hack:peel" imgSrc="/big-image.jpg">
@@ -137,27 +132,7 @@ export default function Outreach() {
           more details!
         </p>
       </Thing>
-
-      <div className="justify-center mt-16 mb-10">
-        <h1 className="text-6xl text-center">Featured on:</h1>
-        <div className="flex justify-center gap-5 pt-4 pb-8">
-          <Featured
-            title="Humber"
-            href="https://humbernews.ca/2023/03/absolute-robotics-won-bronze-in-first-robotics-despite-setbacks/"
-            imgSrc="/hero-banner/big-image.jpg"
-          />
-          <Featured
-            title="Woodstock"
-            imgSrc="/hero-banner/big-image.jpg"
-            href="https://humbernews.ca/2023/03/absolute-robotics-won-bronze-in-first-robotics-despite-setbacks/"
-          />
-          <Featured
-            title="William Qin"
-            href="https://williamqin.com/projects/robotics/"
-            imgSrc="/hero-banner/big-image.jpg"
-          />
-        </div>
-      </div>
+      <div className="h-10" />
     </div>
   );
 }

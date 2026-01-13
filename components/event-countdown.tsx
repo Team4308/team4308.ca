@@ -1,5 +1,6 @@
 "use client";
 
+import { fontSize } from "@/utils/textStyles";
 import { useEffect, useState } from "react";
 
 const ANIM_MS = 800;
@@ -28,7 +29,7 @@ function Box({
     <div
       className="bg-gray-300 rounded-lg text-center flex flex-col py-3 w-50 justify-center overflow-hidden"
     >
-      <h3 className={`${gradient} max-sm:text-sm sm:text-md md:text-lg lg:text-xl font-medium`}>
+      <h3 className={`${gradient} ${fontSize.sm4} font-medium`}>
         {label}
         {num !== 1 ? "s" : ""}
       </h3>
@@ -37,7 +38,7 @@ function Box({
         {digits.split("").map((digit, i) => {
           const oldDigit = oldDigits[i];
           return (
-            <div key={i} className="relative h-10 max-sm:w-3.75 max-sm:text-2xl sm:w-4.5 sm:text-3xl md:w-5.5 md:text-4xl font-medium">
+            <div key={i} className={`relative max-sm:h-7.5 max-md:h-9 md:h-11 max-sm:w-3.75 max-md:w-4.5 md:w-5.5 ${fontSize.x2l3} font-medium`}>
               <div className={`${gradient} absolute w-full`}>
                 {digit}
               </div>
@@ -77,8 +78,8 @@ export default function EventCountdown() {
 
   return (
     <div className="bg-gray-200 mt-12 py-8 text-center px-5">
-      <h2 className={`${gradient} text-xl max-sm:text-lg`}>NEXT EVENT COUNTDOWN</h2>
-      <h1 className={`${gradient} font-medium max-sm:text-3xl sm:text-4xl md:text-5xl`}>
+      <h2 className={`${gradient} ${fontSize.lg3}`}>NEXT EVENT COUNTDOWN</h2>
+      <h1 className={`${gradient} ${fontSize.x3l3} font-medium`}>
         Ontario District – McMaster University
       </h1>
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import path from "path";
 import { Kdam_Thmor_Pro } from "next/font/google";
+import { fontSize } from "@/utils/textStyles";
 
 const kdamFont = Kdam_Thmor_Pro({
   weight: "400",
@@ -19,12 +20,12 @@ export default function HeroBanner({ src, title, desc }: { src: string, title: s
       />
 
       <div className="absolute top-0 w-full h-full flex flex-row">
-        <div className="my-auto w-full">
+        <div className="my-auto w-full text-background text-center">
           <h1
-            className={`max-sm:text-5xl sm:text-6xl md:text-7xl text-background text-center ${kdamFont.className}`}
+            className={`${fontSize.x4l4} ${kdamFont.className} px-5`}
           >{title}</h1>
           <h2
-            className="text-3xl max-sm:text-2xl text-background text-center"
+            className={`${fontSize.xl3} px-10`}
           >{desc}</h2>
         </div>
       </div>
