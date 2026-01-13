@@ -7,7 +7,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { PlusIcon } from "@radix-ui/react-icons";
 import HeroBanner from "@/components/hero-banner";
 import Link from "next/link";
-import { competitionData } from "@/utils/compeition-data";
+import { competitionData } from "@/utils/competition-data";
 import { fontSize } from "@/utils/textStyles";
 
 function Thing(props: { val: number, label: string }) {

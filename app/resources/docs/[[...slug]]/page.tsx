@@ -19,7 +19,7 @@ function* generateSlugs(
 }
 
 export async function generateStaticParams() {
-  const res: { slug: string[] }[] = [];
+  const res: { slug: string[] }[] = [{ slug: [] }];
   for (const slug of generateSlugs(getDocsStructure()))
     if (readDocsAsMatter(slug.join("/")).content.length > 0)
       res.push({ slug: slug });
@@ -31,7 +31,8 @@ export default async function Docs({
 }: {
   params: Promise<{ slug: string[] }>;
 }) {
-  const { slug } = await params;
+  let { slug } = await params;
+  if (!slug) slug = [];
   const doc = readDocsAsMatter(slug.join("/"));
   return (
     <div className="flex w-full px-5 flex-row max-sm:flex-col">

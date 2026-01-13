@@ -24,7 +24,7 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
           title={matter.data.title}
           hasContent={matter.content.length > 0}
           hrefPath={t}
-          onRoute={slug !== undefined && slug[depth] === key}
+          onRoute={slug !== undefined && slug.length > 0 && slug[depth] === key}
         >
           {children}
         </SideBarItem>
@@ -35,7 +35,7 @@ export default function DocsSidebar({ slug }: { slug?: string[] }) {
 
   return (
     <div className="bg-nav text-background sticky top-24 my-4 flex h-[calc(100vh-28*var(--spacing))] w-80 max-xl:w-70 max-lg:w-60 max-md:w-50 flex-col overflow-y-scroll rounded-lg p-3 text-lg gap-1 shadow-md/75 max-sm:static max-sm:h-60 max-sm:w-full">
-      {slug === undefined
+      {(slug === undefined || slug.length === 0)
         ? generateList(getDocsStructure())
         : generateList(getDocsStructure(slug[0]), slug[0], 1)}
     </div>
