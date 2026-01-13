@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <HeroBanner
-        src="big-image.jpg"
+        src="home.jpg"
         title="Team 4308 - Absolute Robotics"
         desc="A FIRST robotics team from Mississauga, Ontario"
       />

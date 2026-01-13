@@ -23,6 +23,10 @@ export const competitionData: CompetitionYear[] = [
       {
         event: "FIRST Ontario Provincial Championship - Technology Division - 29th place",
       },
+      {
+        event: "Overtime Sunday - 12th place",
+        subpoints: ["Captain of Alliance 8", "Double Elimination Bracket (Round 2)"],
+      },
     ]
   },
   {

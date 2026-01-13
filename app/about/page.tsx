@@ -63,16 +63,15 @@ export default function About() {
 
   return (
     <>
-      <HeroBanner src="big-image.jpg" title="About us" />
+      <HeroBanner src="about.jpg" title="About us" />
       <div className="mx-auto my-10 px-10 max-w-6xl gap-4 flex flex-col">
         <h1 className={`${fontSize.x3l3} font-medium`}>
           Our team and FIRST
         </h1>
         <p className={fontSize.lg3}>
-          Our team is an amalgamation of students with distinct talents and
-          abilities while being guided by our mentors from diverse fields and
-          expertise, striving to build competitive robots in order to inspire
-          and shape our youth.
+          Our team is made up of a diverse group of students with distinct talents and
+          abilities while being guided by our mentors, striving to build competitive robots
+          in order to inspire and shape our youth.
         </p>
         <div className={`flex flex-col gap-3 sm:flex-row sm:gap-2 text-center ${fontSize.lg3}`}>
           <Link

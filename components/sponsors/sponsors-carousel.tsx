@@ -31,7 +31,6 @@ export default function SponsorsCarousel({ className }: { className?: string }) 
       <SponsorImage src="ready-set-cut.png" width={1910} height={330} href="https://www.readysetcut.ca/" />
       <SponsorImage src="weston.webp" width={891} height={210} href="https://www.westonforest.com/" />
       <SponsorImage src="pervices.png" width={748} height={294} href="https://www.pervices.com/" />
-      <SponsorImage src="jukebox.svg" width={1024} height={1024} object="object-contain" href="https://www.jukeboxprint.com/" />
       <SponsorImage src="sable-metal.png" width={3062} height={1369} href="https://sablemetal.com/" />
     </Carousel>
   );

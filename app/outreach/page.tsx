@@ -79,7 +79,7 @@ export default function Outreach() {
   return (
     <div>
       <HeroBanner
-        src="big-image.jpg"
+        src="tuff-image.jpg"
         title="Outreach"
       />
 
@@ -114,7 +114,7 @@ export default function Outreach() {
           <Thing2 val={carbon} label="kgs carbon offset" />
         </div>
       </div>
-      <Thing imgPos="left" title="hack:peel" imgSrc="/big-image.jpg">
+      <Thing imgPos="left" title="hack:peel" imgSrc="/hack-peel.png">
         <p>
           Team 4308 is collaborating with the Woodlands computer science club
           to bring you hack::peel 2026! hack::peel is a 24-hour hackathon
@@ -128,7 +128,7 @@ export default function Outreach() {
         <p>
           This year, hack::peel is planning to run again in late May.
           Make sure to check
-          out <Link href="" target="_blank" className="text-link hover:text-link-hover">hack-peel.</Link> for
+          out <Link href="https://hackpeel.xyz" target="_blank" className="text-link hover:text-link-hover">hack-peel.</Link> for
           more details!
         </p>
       </Thing>

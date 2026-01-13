@@ -7,8 +7,9 @@ export default function Sponsors() {
   return (
     <>
       <HeroBanner
-        src="big-image.jpg"
+        src="sponsors.jpg"
         title="Sponsors"
+        imgClass="object-top"
       />
 
       <h1 className={`text-center ${fontSize.x3l3} mt-15 font-medium`}>Sponsorship tiers</h1>

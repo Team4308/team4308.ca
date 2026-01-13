@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${rubikFont.className} bg-background text-text flex flex-col antialiased`}
       >
         <NavBar />
-        <div className={`text-foreground mx-auto w-full pt-20 min-h-screen ${fontSize.md3}`}>
+        <div className={`text-foreground mx-auto w-full max-lg:pt-16 pt-20 min-h-screen ${fontSize.md3}`}>
           {children}
         </div>
         <Footer />
