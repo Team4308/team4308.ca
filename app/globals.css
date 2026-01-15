@@ -70,6 +70,15 @@
   animation: slideUp 300ms ease-out;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-wdith: none;
+  -ms-overflow-style: none;
+}
+
 @keyframes slideDown {
   from {
     height: 0;

@@ -68,7 +68,7 @@ export default function SponsorTiers() {
       <div
         ref={scroll}
         onScroll={Scroll}
-        className="my-10 border-nav border-2 rounded-2xl overflow-x-scroll flex"
+        className="my-10 border-nav border-2 rounded-2xl overflow-x-scroll flex hide-scrollbar"
       >
         <table className="w-full text-center">
           <thead>
