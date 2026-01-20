@@ -1,5 +1,5 @@
 ---
-date: "May 8, 2025"
+date: "Mar 8, 2024"
 thumbnail: "whiplash.png"
 title: "Crescendo: Whiplash"
 ---
