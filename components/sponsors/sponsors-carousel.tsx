@@ -27,11 +27,13 @@ export default function SponsorsCarousel({ className }: { className?: string }) 
       draggable={false}
       className={className}
     >
+      {/*Sponsor logos are below*/}
       <SponsorImage src="rotary.png" width={615} height={240} href="https://rotaryclubofmississauga.com/" />
       <SponsorImage src="ready-set-cut.png" width={1910} height={330} href="https://www.readysetcut.ca/" />
       <SponsorImage src="weston.webp" width={891} height={210} href="https://www.westonforest.com/" />
       <SponsorImage src="pervices.png" width={748} height={294} href="https://www.pervices.com/" />
       <SponsorImage src="sable-metal.png" width={3062} height={1369} href="https://sablemetal.com/" />
+      <SponsorImage src="zebra.png" width={250} height={250} href="https://www.zebra.com/us/en.html" />
     </Carousel>
   );
 }
