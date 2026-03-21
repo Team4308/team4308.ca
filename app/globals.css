@@ -35,27 +35,34 @@
 
 @keyframes open {
   from {
-    max-height: 0px;
+    grid-template-rows: 0fr;
   }
   to {
-    max-height: 100px;
+    grid-template-rows: 1fr;
   }
 }
 
 @keyframes close {
   from {
-    max-height: 100px;
+    grid-template-rows: 1fr;
   }
   to {
-    max-height: 0px;
+    grid-template-rows: 0fr;
   }
 }
 
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  align-items: flex-start;
+}
 .content[data-state="open"] {
   animation: open ease-out 300ms;
+  grid-template-rows: 1fr;
 }
 .content[data-state="closed"] {
   animation: close ease-out 300ms;
+  grid-template-rows: 0fr;
 }
 
 /*This has be in css because of mobile*/

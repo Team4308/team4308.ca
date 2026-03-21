@@ -46,15 +46,15 @@ export default function NavBar() {
         >
           {label}
           <ChevronDownIcon
-            className={`transition-transform group-data-[state=open]:rotate-180 tduration-300 ease-in-out static md:size-4 max-md:size-5`}
+            className={`transition-transform group-data-[state=open]:rotate-180 duration-300 ease-in-out static md:size-4 max-md:size-5`}
           />
         </NavigationMenu.Trigger>
 
-        <NavigationMenu.Content className="content md:rounded-md md:bg-nav-dropdown overflow-hidden max-md:static md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%]">
-          <ul className="flex flex-col items-center min-w-48 w-full">
+        <NavigationMenu.Content className="content md:rounded-md md:bg-nav-dropdown overflow-y-hidden max-md:static md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%]">
+          <ul className="flex flex-col overflow-y-hidden w-fit md:p-1.5">
             {items.map(({ href, label }, index) => {
               return (
-                <li key={index} className="w-full">
+                <li key={index}>
                   {index > 0 ?
                     <div className="w-[calc(100%-8*var(--spacing))] h-px bg-background/38 mx-auto max-md:hidden" /> : <></>
                   }
