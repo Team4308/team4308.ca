@@ -37,6 +37,7 @@
   from {
     grid-template-rows: 0fr;
   }
+
   to {
     grid-template-rows: 1fr;
   }
@@ -46,6 +47,7 @@
   from {
     grid-template-rows: 1fr;
   }
+
   to {
     grid-template-rows: 0fr;
   }
@@ -55,11 +57,14 @@
   display: grid;
   grid-template-rows: 0fr;
   align-items: flex-start;
+  min-width: max-content;
 }
+
 .content[data-state="open"] {
   animation: open ease-out 300ms;
   grid-template-rows: 1fr;
 }
+
 .content[data-state="closed"] {
   animation: close ease-out 300ms;
   grid-template-rows: 0fr;
@@ -73,6 +78,7 @@
 .AccordionContent[data-state="open"] {
   animation: slideDown 300ms ease-out;
 }
+
 .AccordionContent[data-state="closed"] {
   animation: slideUp 300ms ease-out;
 }
@@ -90,6 +96,7 @@
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-accordion-content-height);
   }
@@ -99,6 +106,7 @@
   from {
     height: var(--radix-accordion-content-height);
   }
+
   to {
     height: 0;
   }
@@ -110,8 +118,8 @@
 }
 
 @keyframes digit-fall {
-  0% {
-  }
+  0% {}
+
   100% {
     transform: translate(16px, 70px) rotate(-30deg);
   }
