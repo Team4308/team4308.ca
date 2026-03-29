@@ -56,7 +56,7 @@ function Box({
 }
 
 export default function EventCountdown() {
-  const eventTime = new Date("Mar 26 2026 08:00:00 EST");
+  const eventTime = new Date("April 16 2026 13:00:00 EST");
   const [isClient, setIsClient] = useState(false);
   const [timeDiff, setTimeDiff] = useState(
     Math.floor((+eventTime - +new Date()) / 1000)
@@ -80,7 +80,7 @@ export default function EventCountdown() {
     <div className="bg-gray-200 mt-12 py-8 text-center px-5">
       <h2 className={`${gradient} ${fontSize.lg3}`}>NEXT EVENT COUNTDOWN</h2>
       <h1 className={`${gradient} ${fontSize.x3l3} font-medium`}>
-        Ontario District – Waterloo
+        Ontario District Championships
       </h1>
 
       {isClient && (
