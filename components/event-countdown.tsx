@@ -83,7 +83,7 @@ export default function EventCountdown() {
         Ontario District Championships
       </h1>
 
-      {(isClient && timeDiff < 0) ? (
+      {(isClient && timeDiff > 0) ? (
         <div className="mt-6 flex flex-row justify-center gap-4 max-sm:gap-2">
           <Box num={days} label="day" noLeadingZero />
           <Box num={hours} label="hour" />
