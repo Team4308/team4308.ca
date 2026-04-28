@@ -39,8 +39,6 @@ export default function Home() {
         infinite
       />
 
-      <EventCountdown />
-
       <h3 className={`text-center ${fontSize.xl4} mt-14 mb-3`}>Generously sponsored by:</h3>
 
       <SponsorsCarousel className="mb-6" />
