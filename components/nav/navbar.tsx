@@ -51,7 +51,8 @@ export default function NavBar() {
         </NavigationMenu.Trigger>
 
         <NavigationMenu.Content className="content md:rounded-md md:bg-nav-dropdown overflow-y-hidden max-md:static md:absolute md:top-[100%] md:left-[50%] md:translate-x-[-50%]">
-          <ul className="flex flex-col overflow-y-hidden w-fit md:p-1.5">
+          <ul className="flex flex-col overflow-y-hidden w-fit">
+            <div className="md:h-1.5" />
             {items.map(({ href, label }, index) => {
               return (
                 <li key={index}>
@@ -61,7 +62,7 @@ export default function NavBar() {
                   <NavigationMenu.Link
                     href={hrefBase + href}
                     key={label}
-                    className={`w-full ${path === hrefBase + href ? "text-nav-current" : ""} ${trigger} group flex items-center justify-between gap-4 px-4 py-2 text-nowrap`}
+                    className={`w-full ${path === hrefBase + href ? "text-nav-current" : ""} ${trigger} group flex items-center justify-between gap-4 px-4 md:px-6 py-2 text-nowrap`}
                   >
                     {label}
                     <ArrowRightIcon className="transition-[opacity] opacity-0 md:size-4 max-md:size-5 ml-auto group-hover:opacity-100" />
@@ -69,6 +70,7 @@ export default function NavBar() {
                 </li>
               );
             })}
+            <div className="md:h-1.5" />
           </ul>
         </NavigationMenu.Content>
       </NavigationMenu.Item>
