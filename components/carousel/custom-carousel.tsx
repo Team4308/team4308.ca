@@ -62,6 +62,7 @@ function getSlides(src: string, className?: string) {
             // `path.join` returns path with backslashes ('\'), while normal are required for the relative path to work
             src={path.join(src, file).replace(/\\/g, '/')}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             quality={100}
             alt=""
             className={`object-cover rounded-lg shadow-md`}
