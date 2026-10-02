@@ -34,11 +34,11 @@ export default function Footer() {
         <div
           className="bg-background max-sm:w-35 max-sm:h-px sm:w-px sm:h-14" />
         <Link
-          href="mailto:contact@4308.ca"
+          href="mailto:contact@team4308.ca"
           className="text-xl font-medium underline text-center"
           prefetch={false}
         >
-          contact@4308.ca
+          contact@team4308.ca
         </Link>
       </div>
     </div>
