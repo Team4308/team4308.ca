@@ -17,6 +17,7 @@ export default function HeroBanner({ src, title, desc, imgClass }: { src: string
         src={path.join("/hero-banner", src).replace(/\\/g, '/')}
         alt=""
         className={`w-screen h-[75vh] max-sm:h-120 object-cover brightness-67 saturate-30 ${imgClass}`}
+        loading="eager"
       />
 
       <div className="absolute top-0 w-full h-full flex flex-row">

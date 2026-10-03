@@ -17,6 +17,8 @@ function Thing({ title, imgSrc, imgPos, children }: { imgSrc: string, imgPos: "l
               src={imgSrc}
               alt=""
               fill
+              sizes="(min-width:1024px) 400px, 40vw"
+              loading="eager"
               className="object-cover"
             ></Image>
           </div>
